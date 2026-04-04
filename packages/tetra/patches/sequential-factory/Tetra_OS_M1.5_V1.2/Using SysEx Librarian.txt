@@ -1,0 +1,69 @@
+UPDATING THE OS FROM A MAC USING SYSEX LIBRARIAN
+
+Before starting, close all other audio or MIDI or DAW software, and disconnect all other 
+MIDI devices. If necessary, download and install SysEx Librarian.
+
+http://www.snoize.com/SysExLibrarian/
+
+Connect the MIDI out of your computer's MIDI interface to the instrument's MIDI in. 
+Depending on the type of MIDI interface, you may also need a MIDI cable to complete the 
+connection.
+
+To load an OS file:
+1. Run SysEx Librarian.
+2. Choose your MIDI interface from the "Destination" menu.
+3. Click Add/+ to add the file to the file list or simply drag and drop the file on the 
+   open SysEx Librarian window.
+	The file name appears in the file list and should be highlighted.
+4. Click Play.
+	The display will count down to 0 as the file is being transferred from the Mac to 
+	the instrument. When the transfer is complete, a second, shorter countdown begins as 
+	the file is written to memory. Do not turn off the instrument while it is in the 
+	process of writing!
+	
+************************************* IMPORTANT NOTE *************************************
+These are generic instructions for using SysEx Librarian. Please refer to the 
+documentation for your specific OS update for detailed instructions about what is 
+necessary to update your instrument. In some cases, the order in which the operating
+systems are updated is EXTREMELY important. Failure to follow the prescribed procedure 
+could result in an instrument that is non-operational and may have to be returned to DSI 
+for repair.
+
+TROUBLESHOOTING
+
+Evolver (desktop model)
+If the load fails to start, make sure Evolver is actually receiving MIDI data. (The 
+decimal point in the display blinks when receiving MIDI data.) Also, make sure that MIDI 
+Receive (Main Row 2, knob 5) is set to "ALL."
+
+Poly Evolver
+Poly Evolver Keyboard
+Evolver Keyboard
+Mopho (desktop model)
+Prophet '08 (keyboard and module)
+If the load fails to start, make sure the instrument is actually receiving MIDI data. On 
+the MIDI Channel page of the Global menu, a dot blinks between "MIDI" and "Channel" when 
+MIDI data is received. Also, make sure that MIDI SysEx in the Global menu is set to "On."
+
+Mopho Keyboard (standard and SE)
+Tetra
+Mopho x4
+If the load fails to start, make sure the instrument is actually receiving MIDI data. On 
+the MIDI Channel page of the Global menu, a dot blinks between "MIDI" and "Channel" when 
+MIDI data is received. Also, make sure that MIDI SysEx in the Global menu is set to "On." 
+
+Please note: though these instruments are equipped with USB, the operating systems must be 
+updated via the 5-pin MIDI jack.
+
+General
+Most MIDI interfaces or sound cards with built-in MIDI interfaces will work. However, we 
+have received reports that Digidesign/Avid interfaces and Native Instruments Maschine may 
+not transmit SysEx correctly for updates. The M-Audio Uno is an inexpensive, reliable, and 
+widely available MIDI interface for use when updating our instruments.
+
+If the first countdown stops while the file is being transmitted to the instrument, it may 
+be because the transmit speed is too high. If this happens, you can safely turn the 
+instrument off and turn it on again. Choose Preferences from the SysEx Librarian menu. 
+Click on "Transmit Speed" and reduce the speed. Then close the Preferences window and try 
+transmitting the file again. If the problem persists, try reducing the speed more.
+

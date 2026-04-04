@@ -1,0 +1,75 @@
+UPDATING THE OS FROM A WINDOWS PC USING MIDI-OX
+
+Before starting, close all other audio or MIDI or DAW software, and disconnect all other 
+MIDI devices. If necessary, download and install MIDI-OX.
+
+http://www.midiox.com/
+
+Connect the MIDI out of your computer's MIDI interface to Evolver's MIDI in.
+
+1. Run MIDI-OX.
+2. From the Options menu, choose "Configure Buffers" and set the Low Level Output Buffers 
+   Size to 128 and Num to 1024.
+3. Click OK.
+4. From the Options menu, choose "MIDI Devices."
+5. In the lower left quadrant of the window, select the MIDI port to which the instrument 
+   is connected.
+	The selected MIDI port appears in the Port Mappings window.
+6. Click OK.
+7. From the View menu, choose SysEx.
+	The SysEx window opens.
+8. From the Command Window menu, choose "Load File."
+	Browse to and open the SysEx file.
+9. From the Command Window menu, choose "Send SysEx."
+	The display will count down to 0 as the file is being transferred from the Mac to 
+	the instrument. When the transfer is complete, a second, shorter countdown begins as 
+	the file is written to memory. Do not turn off the instrument while it is in the 
+	process of writing!
+
+
+************************************* IMPORTANT NOTE *************************************
+These are generic instructions for using MIDI-OX. Please refer to the documentation for 
+your specific OS update for detailed instructions about what is necessary to update your 
+instrument. In some cases, the order in which the operating systems are updated is 
+EXTREMELY important. Failure to follow the prescribed procedure could result in an 
+instrument that is non-operational and may have to be returned to DSI for repair.
+
+TROUBLESHOOTING
+
+Evolver (desktop model)
+If the load fails to start, make sure Evolver is actually receiving MIDI data. (The 
+decimal point in the display blinks when receiving MIDI data.) Also, make sure that MIDI 
+Receive (Main Row 2, knob 5) is set to "ALL."
+
+Poly Evolver
+Poly Evolver Keyboard
+Evolver Keyboard
+Mopho (desktop model)
+Prophet '08 (keyboard and module)
+If the load fails to start, make sure the instrument is actually receiving MIDI data. On 
+the MIDI Channel page of the Global menu, a dot blinks between "MIDI" and "Channel" when 
+MIDI data is received. Also, make sure that MIDI SysEx in the Global menu is set to "On."
+
+Mopho Keyboard (standard and SE)
+Tetra
+Mopho x4
+If the load fails to start, make sure the instrument is actually receiving MIDI data. On the 
+MIDI Channel page of the Global menu, a dot blinks between "MIDI" and "Channel" when  MIDI 
+data is received. Also, make sure that MIDI SysEx in the Global menu is set to "On." 
+
+Please note: though these instruments are equipped with USB, the operating systems must be 
+updated via the 5-pin MIDI jack.
+
+General
+Most MIDI interfaces or sound cards with built-in MIDI interfaces will work. However, we 
+have received reports that Digidesign/Avid interfaces and Native Instruments Maschine may 
+not transmit SysEx correctly for updates. The M-Audio Uno is an inexpensive, reliable, and 
+widely available MIDI interface for use when updating our instruments.
+
+If the first countdown stops while the file is being transmitted to the instrument, you 
+can safely turn the instrument off and turn it on again. In MIDI-OX, double the Low Level 
+Output Buffers "Num" and "Size" values and re-send the SysEx file. If the countdown gets 
+closer to zero, then you know your settings are moving in the right direction. If the 
+countdown goes further from zero try reducing the "Num" and "Size" settings. You can also 
+try doubling or quadrupling the "Size" setting. You may have to adjust the Low Level 
+Output Buffers settings several times before finding the right combination.
