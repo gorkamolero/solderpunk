@@ -1,26 +1,197 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-jetbrains);
+  --font-mono: var(--font-jetbrains);
+  --font-heading: var(--font-jetbrains);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: 0px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 2px;
+  --radius-2xl: 2px;
+  --radius-3xl: 2px;
+  --radius-4xl: 2px;
+
+  /* Neobrutalist palette */
+  --color-neo-cream: #f5f0e8;
+  --color-neo-charcoal: #1a1a1a;
+  --color-neo-teal: #0af;
+  --color-neo-coral: #ff4d4d;
+  --color-neo-border: #1a1a1a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 2px;
+  --background: #f5f0e8;
+  --foreground: #1a1a1a;
+  --card: #f5f0e8;
+  --card-foreground: #1a1a1a;
+  --popover: #f5f0e8;
+  --popover-foreground: #1a1a1a;
+  --primary: #0af;
+  --primary-foreground: #1a1a1a;
+  --secondary: #e8e3db;
+  --secondary-foreground: #1a1a1a;
+  --muted: #e8e3db;
+  --muted-foreground: #666;
+  --accent: #ff4d4d;
+  --accent-foreground: #fff;
+  --destructive: #ff4d4d;
+  --border: #1a1a1a;
+  --input: #1a1a1a;
+  --ring: #0af;
+  --chart-1: #0af;
+  --chart-2: #ff4d4d;
+  --chart-3: #1a6b4a;
+  --chart-4: #a8307a;
+  --chart-5: #d4880a;
+  --sidebar: #f5f0e8;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #0af;
+  --sidebar-primary-foreground: #1a1a1a;
+  --sidebar-accent: #e8e3db;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #1a1a1a;
+  --sidebar-ring: #0af;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    border-radius: 0 !important;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-jetbrains), monospace;
+  }
+
+  html {
+    font-family: var(--font-jetbrains), monospace;
+  }
+
+  /* Kill all rounded corners globally */
+  [class*="rounded"] {
+    border-radius: 0 !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Neobrutalist overrides for shadcn */
+[data-slot="button"] {
+  border: 3px solid #1a1a1a !important;
+  border-radius: 0 !important;
+  box-shadow: 4px 4px 0 #1a1a1a;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+[data-slot="button"]:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 #1a1a1a;
+}
+
+[data-slot="button"]:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #1a1a1a;
+}
+
+[data-slot="badge"] {
+  border: 2px solid #1a1a1a !important;
+  border-radius: 0 !important;
+  box-shadow: 2px 2px 0 #1a1a1a;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+[data-slot="tabs-trigger"] {
+  border: 2px solid #1a1a1a !important;
+  border-radius: 0 !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+[data-slot="tabs-trigger"][data-active] {
+  background: #0af !important;
+  color: #1a1a1a !important;
+  box-shadow: 3px 3px 0 #1a1a1a;
+}
+
+[data-slot="tabs-list"] {
+  background: transparent !important;
+  border-radius: 0 !important;
+  gap: 4px;
+}
+
+[data-slot="tooltip-content"] {
+  border: 3px solid #1a1a1a !important;
+  border-radius: 0 !important;
+  background: #f5f0e8 !important;
+  color: #1a1a1a !important;
+  box-shadow: 4px 4px 0 #1a1a1a;
+  font-weight: 600;
+}
+
+[data-slot="resizable-handle"] {
+  background: #1a1a1a !important;
+  width: 3px !important;
+}
+
+[data-slot="scroll-area-thumb"] {
+  background: #1a1a1a !important;
+  border-radius: 0 !important;
+}
+
+/* Custom scrollbar for brutalist feel */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e8e3db;
+  border-left: 3px solid #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border: none;
 }
