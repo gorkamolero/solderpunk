@@ -22,7 +22,6 @@ export function PanelZone({ zone }: { zone: Zone }) {
   const { highlightedZone, hoveredZone, hoveredGroup, highlight, setHovered, showMessage } = useSynth()
 
   const isSmall = zone.group === 'knob' || zone.group === 'button'
-  const isGroup = !isSmall && zone.group !== 'pads'
 
   const isHighlighted = highlightedZone === zone.id
   const isHovered = hoveredZone === zone.id
@@ -31,20 +30,24 @@ export function PanelZone({ zone }: { zone: Zone }) {
 
   const color = groupColors[zone.group ?? ''] ?? '#0af'
 
+  // Simple z-index: knobs/buttons ABOVE groups. That's it.
+  // Mouse hits the topmost element. Knobs are on top, groups behind.
+  // Between knobs, mouse falls through to the group below.
+  const zIndex = isSmall ? 20 : 5
+
   return (
     <Tooltip>
       <TooltipTrigger
         className={cn(
-          'absolute transition-all duration-100',
-          isSmall ? 'cursor-pointer rounded-full' : 'cursor-pointer',
-          isSmall ? 'z-30' : isGroup ? 'z-[5]' : 'z-[15]',
-          isGroup && 'pointer-events-none',
+          'absolute cursor-pointer transition-all duration-100',
+          isSmall && 'rounded-full',
         )}
         style={{
           left: zone.rect[0],
           top: zone.rect[1],
           width: zone.rect[2],
           height: zone.rect[3],
+          zIndex,
           borderWidth: isActive ? (isSmall ? '2px' : '3px') : '1px',
           borderStyle: 'solid',
           borderColor: isActive ? color : 'transparent',
