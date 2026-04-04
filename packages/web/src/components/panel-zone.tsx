@@ -30,9 +30,6 @@ export function PanelZone({ zone }: { zone: Zone }) {
 
   const color = groupColors[zone.group ?? ''] ?? '#0af'
 
-  // Simple z-index: knobs/buttons ABOVE groups. That's it.
-  // Mouse hits the topmost element. Knobs are on top, groups behind.
-  // Between knobs, mouse falls through to the group below.
   const zIndex = isSmall ? 20 : 5
 
   return (
