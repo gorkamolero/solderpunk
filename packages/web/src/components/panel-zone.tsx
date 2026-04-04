@@ -2,11 +2,8 @@
 
 import { useSynth } from '@/lib/synth-context'
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip'
+import { cn } from '@/lib/utils'
 import type { Zone } from '@/lib/tempest/types'
-
-interface PanelZoneProps {
-  zone: Zone
-}
 
 const groupColors: Record<string, string> = {
   synth: '#0af',
@@ -21,43 +18,42 @@ const groupColors: Record<string, string> = {
   button: '#0af',
 }
 
-export function PanelZone({ zone }: PanelZoneProps) {
-  const { highlightedZone, hoveredZone, highlight, setHovered, showMessage } = useSynth()
-
-  const isHighlighted = highlightedZone === zone.id
-  const isHovered = hoveredZone === zone.id
-  const isActive = isHighlighted || isHovered
-  const color = groupColors[zone.group ?? ''] ?? '#0af'
+export function PanelZone({ zone }: { zone: Zone }) {
+  const { highlightedZone, hoveredZone, hoveredGroup, highlight, setHovered, showMessage } = useSynth()
 
   const isSmall = zone.group === 'knob' || zone.group === 'button'
   const isGroup = !isSmall && zone.group !== 'pads'
 
-  // Groups: low z-index, pointer-events:none so knobs/buttons inside receive hover
-  // Knobs/buttons: high z-index, pointer-events:auto
-  const zBase = isSmall ? 30 : isGroup ? 5 : 15
+  const isHighlighted = highlightedZone === zone.id
+  const isHovered = hoveredZone === zone.id
+  const isGroupHovered = hoveredGroup === zone.id
+  const isActive = isHighlighted || isHovered || isGroupHovered
+
+  const color = groupColors[zone.group ?? ''] ?? '#0af'
 
   return (
     <Tooltip>
       <TooltipTrigger
-        className="absolute cursor-pointer"
+        className={cn(
+          'absolute transition-all duration-100',
+          isSmall ? 'cursor-pointer rounded-full' : 'cursor-pointer',
+          isActive ? 'z-40' : isSmall ? 'z-30' : isGroup ? 'z-[5]' : 'z-[15]',
+          isGroup && !isActive && 'pointer-events-none',
+        )}
         style={{
           left: zone.rect[0],
           top: zone.rect[1],
           width: zone.rect[2],
           height: zone.rect[3],
-          border: isActive
-            ? `${isSmall ? '2px' : '3px'} solid ${color}`
-            : isSmall ? '1px solid transparent' : '2px solid transparent',
+          borderWidth: isActive ? (isSmall ? '2px' : '3px') : '1px',
+          borderStyle: 'solid',
+          borderColor: isActive ? color : 'transparent',
           background: isActive ? `${color}22` : 'transparent',
           boxShadow: isHighlighted
             ? `0 0 12px ${color}, 4px 4px 0 ${color}44`
-            : isHovered
+            : (isHovered || isGroupHovered)
               ? `0 0 8px ${color}88`
               : 'none',
-          zIndex: isActive ? zBase + 10 : zBase,
-          pointerEvents: isGroup && !isActive ? 'none' : 'auto',
-          transition: 'border 0.1s, background 0.1s, box-shadow 0.15s',
-          borderRadius: isSmall ? '50%' : '0',
         }}
         onMouseEnter={() => {
           setHovered(zone.id)

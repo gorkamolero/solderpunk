@@ -16,6 +16,7 @@ interface SynthContextValue {
   lessons: SeedLesson[]
   highlightedZone: string | null
   hoveredZone: string | null
+  hoveredGroup: string | null
   message: string
   tutorial: TutorialState | null
   currentStep: TutorialStep | null
@@ -36,6 +37,7 @@ const SynthContext = createContext<SynthContextValue | null>(null)
 export function SynthProvider({ children }: { children: ReactNode }) {
   const [highlightedZone, setHighlightedZone] = useState<string | null>(null)
   const [hoveredZone, setHoveredZone] = useState<string | null>(null)
+  const [hoveredGroup, setHoveredGroup] = useState<string | null>(null)
   const [message, setMessage] = useState('DSI Tempest Explorer — hover over zones to learn, pick a tutorial to begin.')
   const [tutorial, setTutorial] = useState<TutorialState | null>(null)
 
@@ -45,6 +47,20 @@ export function SynthProvider({ children }: { children: ReactNode }) {
 
   const setHovered = useCallback((id: string | null) => {
     setHoveredZone(id)
+    if (id) {
+      // Derive parent group: osc-shape → osc, lpf-frequency → lpf, env-attack → env, etc.
+      const zone = zones.find(z => z.id === id)
+      if (zone && (zone.group === 'knob' || zone.group === 'button')) {
+        const prefix = id.split('-')[0]
+        // Find matching section zone
+        const parent = zones.find(z => z.id === prefix && z.group !== 'knob' && z.group !== 'button')
+        setHoveredGroup(parent?.id ?? null)
+      } else {
+        setHoveredGroup(null)
+      }
+    } else {
+      setHoveredGroup(null)
+    }
   }, [])
 
   const showMessage = useCallback((text: string) => {
@@ -103,6 +119,7 @@ export function SynthProvider({ children }: { children: ReactNode }) {
     lessons: seedLessons,
     highlightedZone,
     hoveredZone,
+    hoveredGroup,
     message,
     tutorial,
     currentStep,
@@ -114,7 +131,7 @@ export function SynthProvider({ children }: { children: ReactNode }) {
     nextStep,
     prevStep,
     exitTutorial,
-  }), [highlightedZone, hoveredZone, message, tutorial, currentStep, highlight, setHovered, showMessage, clearHighlight, startTutorial, nextStep, prevStep, exitTutorial])
+  }), [highlightedZone, hoveredZone, hoveredGroup, message, tutorial, currentStep, highlight, setHovered, showMessage, clearHighlight, startTutorial, nextStep, prevStep, exitTutorial])
 
   return (
     <SynthContext.Provider value={value}>
