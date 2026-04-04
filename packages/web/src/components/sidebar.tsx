@@ -5,7 +5,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Badge } from '@/components/ui/badge'
 import { TutorialView } from './tutorial-view'
-import { BookOpen, Disc3 } from 'lucide-react'
+import { BookOpen, Disc3, ExternalLink, Download } from 'lucide-react'
 import type { SeedLesson } from '@/lib/tempest/types'
 
 function LessonCard({ lesson }: { lesson: SeedLesson }) {
@@ -38,21 +38,14 @@ function LessonCard({ lesson }: { lesson: SeedLesson }) {
         </h4>
         <span
           className="shrink-0 text-[10px] font-bold px-1.5 py-0.5"
-          style={{
-            background: '#0af',
-            color: '#1a1a1a',
-            border: '2px solid #1a1a1a',
-          }}
+          style={{ background: '#0af', color: '#1a1a1a', border: '2px solid #1a1a1a' }}
         >
           {stepCount} STEPS
         </span>
       </div>
-
       <div className="flex flex-wrap gap-1">
         {tags.map((tag) => (
-          <Badge key={tag} variant="outline" className="text-[9px]">
-            {tag.trim()}
-          </Badge>
+          <Badge key={tag} variant="outline" className="text-[9px]">{tag.trim()}</Badge>
         ))}
       </div>
     </button>
@@ -61,7 +54,6 @@ function LessonCard({ lesson }: { lesson: SeedLesson }) {
 
 function LessonList() {
   const { lessons } = useSynth()
-
   const beginnerLessons = lessons.filter(l => l.tags.includes('beginner'))
   const intermediateLessons = lessons.filter(l => l.tags.includes('intermediate'))
 
@@ -70,10 +62,7 @@ function LessonList() {
       <div className="p-4 space-y-6">
         {beginnerLessons.length > 0 && (
           <div className="space-y-3">
-            <h3
-              className="text-xs font-extrabold uppercase tracking-widest px-1"
-              style={{ color: '#ff4d4d' }}
-            >
+            <h3 className="text-xs font-extrabold uppercase tracking-widest px-1" style={{ color: '#ff4d4d' }}>
               {'/// Beginner'}
             </h3>
             {beginnerLessons.map((lesson) => (
@@ -81,13 +70,9 @@ function LessonList() {
             ))}
           </div>
         )}
-
         {intermediateLessons.length > 0 && (
           <div className="space-y-3">
-            <h3
-              className="text-xs font-extrabold uppercase tracking-widest px-1"
-              style={{ color: '#0af' }}
-            >
+            <h3 className="text-xs font-extrabold uppercase tracking-widest px-1" style={{ color: '#0af' }}>
               {'/// Intermediate'}
             </h3>
             {intermediateLessons.map((lesson) => (
@@ -100,20 +85,106 @@ function LessonList() {
   )
 }
 
+const patchCollections = [
+  { name: 'Hardwarecore Soundset', count: 64, desc: 'Pads, bass, leads, kicks', file: 'hardwarecore/' },
+  { name: 'Leviathant TR-606/DR-110', count: 32, desc: 'Analog drum emulations from a year of sound design', file: 'leviathant-606-110/' },
+  { name: 'Polyrhythm Templates', count: 18, desc: 'Every polyrhythm/polymeter combo + Berlin School', file: 'polyrhythm-templates/' },
+  { name: 'Community Archive', count: 403, desc: '808 Turbo, CBMD Analog Drums, Sound Contest 414, StimPack, Chiptune', file: 'community/' },
+]
+
+const resources = [
+  { name: 'Sequential Forum Thread', url: 'https://forum.sequential.com/index.php?topic=34.0', desc: 'Community patches & tips (72+ replies)' },
+  { name: "Stim's Tempest Recipes", url: 'http://noisylittlebugger.net/', desc: '16 synthesis tutorials with exact values' },
+  { name: 'PresetPatch.com', url: 'https://www.presetpatch.com/synth/dsi-tempest', desc: 'Individual .syx downloads' },
+  { name: 'Leviathant Drums', url: 'https://www.bitrotten.com/tempest/', desc: 'TR-606 & DR-110 emulations (donation-ware)' },
+  { name: 'Hardwarecore', url: 'https://hardwarecore.wordpress.com/2015/06/01/dsi-tempest-soundset-hardwarecore-1/', desc: '64 patches, originally $10, now free' },
+]
+
+function PatchList() {
+  return (
+    <ScrollArea className="flex-1 overflow-auto">
+      <div className="p-4 space-y-6">
+        <div className="space-y-3">
+          <h3 className="text-xs font-extrabold uppercase tracking-widest px-1" style={{ color: '#ff4d4d' }}>
+            {'/// Patch Collections'}
+          </h3>
+          {patchCollections.map((col) => (
+            <div
+              key={col.name}
+              className="p-3"
+              style={{ background: '#f5f0e8', border: '3px solid #1a1a1a', boxShadow: '4px 4px 0 #1a1a1a' }}
+            >
+              <div className="flex items-start justify-between gap-2 mb-1">
+                <h4 className="text-sm font-extrabold uppercase tracking-wider leading-tight" style={{ color: '#1a1a1a' }}>
+                  {col.name}
+                </h4>
+                <span
+                  className="shrink-0 text-[10px] font-bold px-1.5 py-0.5"
+                  style={{ background: '#0af', color: '#1a1a1a', border: '2px solid #1a1a1a' }}
+                >
+                  {col.count} SYX
+                </span>
+              </div>
+              <p className="text-[11px] mb-2" style={{ color: '#666' }}>{col.desc}</p>
+              <div className="flex items-center gap-1 text-[10px] font-bold uppercase" style={{ color: '#0af' }}>
+                <Download size={10} strokeWidth={3} />
+                {col.file}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="space-y-3">
+          <h3 className="text-xs font-extrabold uppercase tracking-widest px-1" style={{ color: '#0af' }}>
+            {'/// Resources'}
+          </h3>
+          {resources.map((res) => (
+            <a
+              key={res.name}
+              href={res.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block p-3 no-underline"
+              style={{
+                background: '#f5f0e8',
+                border: '3px solid #1a1a1a',
+                boxShadow: '4px 4px 0 #1a1a1a',
+                transition: 'transform 0.1s, box-shadow 0.1s',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translate(-1px, -1px)'
+                e.currentTarget.style.boxShadow = '5px 5px 0 #1a1a1a'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'none'
+                e.currentTarget.style.boxShadow = '4px 4px 0 #1a1a1a'
+              }}
+            >
+              <div className="flex items-center gap-2 mb-1">
+                <h4 className="text-sm font-extrabold uppercase tracking-wider leading-tight" style={{ color: '#1a1a1a' }}>
+                  {res.name}
+                </h4>
+                <ExternalLink size={12} strokeWidth={3} style={{ color: '#0af' }} />
+              </div>
+              <p className="text-[11px]" style={{ color: '#666' }}>{res.desc}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </ScrollArea>
+  )
+}
+
 export function Sidebar() {
   const { tutorial } = useSynth()
 
-  // If a tutorial is active, show the tutorial view instead
   if (tutorial) {
     return <TutorialView />
   }
 
   return (
     <Tabs defaultValue="tutorials" className="flex flex-col h-full">
-      <div
-        className="shrink-0 px-4 pt-3 pb-2"
-        style={{ borderBottom: '3px solid #1a1a1a' }}
-      >
+      <div className="shrink-0 px-4 pt-3 pb-2" style={{ borderBottom: '3px solid #1a1a1a' }}>
         <TabsList variant="line" className="w-full">
           <TabsTrigger value="tutorials" className="flex-1 gap-1.5">
             <BookOpen size={13} strokeWidth={3} />
@@ -131,19 +202,7 @@ export function Sidebar() {
       </TabsContent>
 
       <TabsContent value="patches" className="flex-1 overflow-hidden">
-        <div className="flex items-center justify-center h-full p-8">
-          <div
-            className="text-center p-6"
-            style={{
-              border: '3px dashed #ccc',
-            }}
-          >
-            <Disc3 size={32} className="mx-auto mb-3" style={{ color: '#ccc' }} />
-            <p className="text-xs font-bold uppercase tracking-wider" style={{ color: '#999' }}>
-              Patch browser coming soon
-            </p>
-          </div>
-        </div>
+        <PatchList />
       </TabsContent>
     </Tabs>
   )
