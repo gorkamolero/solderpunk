@@ -88,16 +88,27 @@ function LessonList() {
 const patchCollections = [
   { name: 'Hardwarecore Soundset', count: 64, desc: 'Pads, bass, leads, kicks', file: 'hardwarecore/' },
   { name: 'Leviathant TR-606/DR-110', count: 32, desc: 'Analog drum emulations from a year of sound design', file: 'leviathant-606-110/' },
+  { name: 'Tim Mantle / Psalm37', count: 288, desc: '128 synth + 160 drum sounds — pads, leads, bass, percussion', file: 'tim-mantle/' },
+  { name: 'Deep Mind Dark', count: 512, desc: '256 synth + 256 percussion by Peter Jaczewski', file: 'deep-mind-dark/' },
+  { name: 'Deep Mind Dark Mopho', count: 384, desc: 'Mopho presets ported to Tempest — includes BladeRunner patch', file: 'deep-mind-dark-mopho/' },
+  { name: 'Sylvain Moreau BD1', count: 41, desc: 'Expertly designed kick drums with programming notes', file: 'sylvain-moreau-bd1/' },
   { name: 'Polyrhythm Templates', count: 18, desc: 'Every polyrhythm/polymeter combo + Berlin School', file: 'polyrhythm-templates/' },
   { name: 'Community Archive', count: 403, desc: '808 Turbo, CBMD Analog Drums, Sound Contest 414, StimPack, Chiptune', file: 'community/' },
 ]
 
 const resources = [
-  { name: 'Sequential Forum Thread', url: 'https://forum.sequential.com/index.php?topic=34.0', desc: 'Community patches & tips (72+ replies)' },
+  { name: 'Sequential Forum Thread', url: 'https://forum.sequential.com/index.php?topic=34.0', desc: 'Community patches & tips (72+ replies, 216K views)' },
   { name: "Stim's Tempest Recipes", url: 'http://noisylittlebugger.net/', desc: '16 synthesis tutorials with exact values' },
   { name: 'PresetPatch.com', url: 'https://www.presetpatch.com/synth/dsi-tempest', desc: 'Individual .syx downloads' },
   { name: 'Leviathant Drums', url: 'https://www.bitrotten.com/tempest/', desc: 'TR-606 & DR-110 emulations (donation-ware)' },
   { name: 'Hardwarecore', url: 'https://hardwarecore.wordpress.com/2015/06/01/dsi-tempest-soundset-hardwarecore-1/', desc: '64 patches, originally $10, now free' },
+  { name: 'Tim Mantle / Psalm37', url: 'https://timmantle.com', desc: '288 patches — pro sound designer (paid, \u00A35\u201310)' },
+  { name: 'Deep Mind Dark', url: 'https://gumroad.com', desc: '512 sounds by Peter Jaczewski ($17)' },
+  { name: 'Deep Mind Dark Mopho', url: 'https://bandcamp.com', desc: '384 Mopho ports incl. BladeRunner ($17)' },
+  { name: 'Sylvain Moreau BD1', url: 'https://sylvainmoreau.com', desc: '41 expertly designed kick drums' },
+  { name: 'HelloSamples', url: 'https://hellosamples.com', desc: '4,000+ WAV one-shots, unprocessed (\u20AC22\u201334)' },
+  { name: 'Sound Randomizer', url: 'https://forum.sequential.com/index.php?topic=34.0', desc: 'Free online random patch generator' },
+  { name: 'midi.link Exchange', url: 'https://forum.sequential.com/index.php?topic=34.0', desc: '288 new community sounds' },
 ]
 
 function PatchList() {
