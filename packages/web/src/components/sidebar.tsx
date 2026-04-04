@@ -58,7 +58,7 @@ function LessonList() {
   const intermediateLessons = lessons.filter(l => l.tags.includes('intermediate'))
 
   return (
-    <ScrollArea className="flex-1 overflow-auto">
+    <ScrollArea className="flex-1 min-h-0">
       <div className="p-4 space-y-6">
         {beginnerLessons.length > 0 && (
           <div className="space-y-3">
@@ -102,7 +102,7 @@ const resources = [
 
 function PatchList() {
   return (
-    <ScrollArea className="flex-1 overflow-auto">
+    <ScrollArea className="flex-1 min-h-0">
       <div className="p-4 space-y-6">
         <div className="space-y-3">
           <h3 className="text-xs font-extrabold uppercase tracking-widest px-1" style={{ color: '#ff4d4d' }}>
@@ -197,11 +197,11 @@ export function Sidebar() {
         </TabsList>
       </div>
 
-      <TabsContent value="tutorials" className="flex-1 overflow-hidden">
+      <TabsContent value="tutorials" className="flex-1 flex flex-col overflow-hidden min-h-0">
         <LessonList />
       </TabsContent>
 
-      <TabsContent value="patches" className="flex-1 overflow-hidden">
+      <TabsContent value="patches" className="flex-1 flex flex-col overflow-hidden min-h-0">
         <PatchList />
       </TabsContent>
     </Tabs>
