@@ -23,7 +23,7 @@ export function Panel() {
         >
           {/* Panel image */}
           <img
-            src="/panel.webp"
+            src="/panel-nobg.png"
             alt="DSI Tempest front panel"
             className="w-full h-full block select-none"
             style={{
