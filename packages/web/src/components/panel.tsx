@@ -11,30 +11,26 @@ export function Panel() {
   return (
     <div className="flex flex-col h-full">
       <div
-        className="relative flex-1 flex items-center justify-center p-4 overflow-hidden"
-        style={{ background: '#e8e3db' }}
+        className="relative flex-1 flex items-center justify-center overflow-auto"
+        style={{ background: '#e8e3db', padding: '8px' }}
       >
         <div
-          className="relative w-full"
+          className="relative shrink-0"
           style={{
-            maxWidth: '1200px',
+            width: 'min(100%, 1000px)',
             aspectRatio: '1200 / 799',
           }}
         >
           {/* Panel image */}
-          <Image
+          <img
             src="/panel.webp"
             alt="DSI Tempest front panel"
-            width={1200}
-            height={799}
             className="w-full h-full block select-none"
             style={{
               border: '4px solid #1a1a1a',
               boxShadow: '8px 8px 0 #1a1a1a',
-              imageRendering: 'auto',
             }}
             draggable={false}
-            priority
             onClick={(e) => {
               if (e.target === e.currentTarget) clearHighlight()
             }}
