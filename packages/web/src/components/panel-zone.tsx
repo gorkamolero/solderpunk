@@ -37,8 +37,8 @@ export function PanelZone({ zone }: { zone: Zone }) {
         className={cn(
           'absolute transition-all duration-100',
           isSmall ? 'cursor-pointer rounded-full' : 'cursor-pointer',
-          isActive ? 'z-40' : isSmall ? 'z-30' : isGroup ? 'z-[5]' : 'z-[15]',
-          isGroup && !isActive && 'pointer-events-none',
+          isSmall ? 'z-30' : isGroup ? 'z-[5]' : 'z-[15]',
+          isGroup && 'pointer-events-none',
         )}
         style={{
           left: zone.rect[0],
