@@ -9,22 +9,14 @@ export function Panel() {
 
   return (
     <div className="flex flex-col h-full overflow-hidden">
-      <div
-        className="flex-1 flex items-center justify-center overflow-hidden p-3"
-        style={{ background: '#e8e3db' }}
-      >
+      <div className="flex-1 flex items-center justify-center overflow-hidden bg-neo-charcoal">
         <div
-          className="relative max-w-full max-h-full"
-          style={{ aspectRatio: config.panelAspectRatio }}
+          className="relative max-w-full max-h-full aspect-[1200/799]"
         >
           <img
             src={config.panelImage}
             alt={config.panelAlt}
-            className="w-full h-full object-contain select-none"
-            style={{
-              border: '4px solid #1a1a1a',
-              boxShadow: '8px 8px 0 #1a1a1a',
-            }}
+            className="w-full h-full object-contain select-none border-none"
             draggable={false}
             onClick={(e) => {
               if (e.target === e.currentTarget) clearHighlight()

@@ -29,23 +29,19 @@ export function ExplorerLayout() {
   }, [])
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden" style={{ background: '#f5f0e8' }}>
+    <div className="flex flex-col h-screen overflow-hidden bg-neo-cream">
       <MessageBar />
       <div className="flex flex-1 overflow-hidden">
         <div className="flex-1 min-w-0 overflow-hidden">
           <Panel />
         </div>
         <div
-          className="w-[3px] cursor-col-resize hover:bg-[#0af] transition-colors shrink-0"
-          style={{ background: dragging ? '#0af' : '#1a1a1a' }}
+          className={`w-[3px] cursor-col-resize hover:bg-neo-teal transition-colors shrink-0 ${dragging ? 'bg-neo-teal' : 'bg-neo-charcoal'}`}
           onMouseDown={handleMouseDown}
         />
         <div
-          className="flex flex-col overflow-hidden shrink-0"
-          style={{
-            width: sidebarWidth,
-            background: '#f5f0e8',
-          }}
+          className="flex flex-col overflow-hidden shrink-0 bg-neo-cream"
+          style={{ width: sidebarWidth }}
         >
           <Sidebar />
         </div>
