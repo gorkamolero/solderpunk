@@ -1,0 +1,9 @@
+{
+  "name": "solderpunk",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter @solderpunk/web dev",
+    "build": "pnpm --filter @solderpunk/web build",
+    "test": "pnpm --filter @solderpunk/core test"
+  }
+}

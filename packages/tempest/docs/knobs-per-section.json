@@ -1,0 +1,270 @@
+{
+  "osc": [
+    {
+      "id": "osc-shape",
+      "label": "Shape",
+      "tip": "Off, Saw, Tri, Saw-Tri, Pulse 0-99%. Secondary: Sample (digital)",
+      "rect": [
+        "22.2%",
+        "28.8%",
+        "2.3%",
+        "3.5%"
+      ],
+      "section": "osc"
+    },
+    {
+      "id": "osc-1-2-mix",
+      "label": "1/2 Mix",
+      "tip": "0=100% Osc1, 64=50/50, 127=100% Osc2. Secondary: Level (digital)",
+      "rect": [
+        "27.8%",
+        "28.9%",
+        "2.3%",
+        "3.5%"
+      ],
+      "section": "osc"
+    },
+    {
+      "id": "osc-pitch",
+      "label": "Pitch",
+      "tip": "C0-C10 semitones (10 octaves). Secondary: Frequency (digital, -24 to +24)",
+      "rect": [
+        "33.4%",
+        "28.8%",
+        "2.3%",
+        "3.5%"
+      ],
+      "section": "osc"
+    }
+  ],
+  "lpf": [
+    {
+      "id": "lpf-frequency",
+      "label": "Frequency",
+      "tip": "0-164. 13+ octave range. Steps in semitones slowly, smooth at speed.",
+      "rect": [
+        "39.0%",
+        "28.8%",
+        "2.3%",
+        "3.5%"
+      ],
+      "section": "lpf"
+    },
+    {
+      "id": "lpf-resonance",
+      "label": "Resonance",
+      "tip": "0-127. Self-oscillates at high values in 4-pole mode.",
+      "rect": [
+        "44.6%",
+        "28.8%",
+        "2.3%",
+        "3.5%"
+      ],
+      "section": "lpf"
+    },
+    {
+      "id": "lpf-audio-mod",
+      "label": "Audio Mod",
+      "tip": "0-127. FM from Osc 1 to filter cutoff. Bell-like FM sounds.",
+      "rect": [
+        "50.2%",
+        "29.1%",
+        "2.2%",
+        "3.3%"
+      ],
+      "section": "lpf"
+    }
+  ],
+  "hpf": [
+    {
+      "id": "hpf-frequency",
+      "label": "Frequency",
+      "tip": "0-127. 2-pole -12dB/oct. 0 passes all frequencies.",
+      "rect": [
+        "55.9%",
+        "29.1%",
+        "2.0%",
+        "3.0%"
+      ],
+      "section": "hpf"
+    }
+  ],
+  "amp": [
+    {
+      "id": "amp-feedback",
+      "label": "Feedback",
+      "tip": "0-127. Feeds left output back pre-filter. 0=no feedback. Fuzzy distortion to pandemonium.",
+      "rect": [
+        "61.4%",
+        "29.1%",
+        "2.0%",
+        "3.0%"
+      ],
+      "section": "amp"
+    }
+  ],
+  "env": [
+    {
+      "id": "env-attack",
+      "label": "Attack",
+      "tip": "0-127. Attack time of selected envelope.",
+      "rect": [
+        "17.2%",
+        "39.4%",
+        "1.8%",
+        "2.7%"
+      ],
+      "section": "env"
+    },
+    {
+      "id": "env-decay",
+      "label": "Decay",
+      "tip": "0-127. Decay time. Secondary (Shift): Sustain Level 0-127.",
+      "rect": [
+        "20.9%",
+        "44.4%",
+        "2.3%",
+        "3.5%"
+      ],
+      "section": "env"
+    },
+    {
+      "id": "env-amount",
+      "label": "Amount",
+      "tip": "-127 to +127. Modulation amount to destination. Amp is 0-127 only.",
+      "rect": [
+        "22.2%",
+        "38.4%",
+        "2.3%",
+        "3.5%"
+      ],
+      "section": "env"
+    },
+    {
+      "id": "env-velocity-amt",
+      "label": "Velocity Amt",
+      "tip": "0-127. How much velocity affects envelope amount.",
+      "rect": [
+        "27.8%",
+        "38.4%",
+        "2.3%",
+        "3.5%"
+      ],
+      "section": "env"
+    }
+  ],
+  "lfo": [
+    {
+      "id": "lfo-rate",
+      "label": "Rate",
+      "tip": "0-162. Free: 30sec to 523Hz. Synced: 32 quarter notes to 64th notes.",
+      "rect": [
+        "39.0%",
+        "38.4%",
+        "2.3%",
+        "3.5%"
+      ],
+      "section": "lfo"
+    },
+    {
+      "id": "lfo-amount",
+      "label": "Amount",
+      "tip": "0-127. Modulation depth to destination.",
+      "rect": [
+        "44.6%",
+        "38.3%",
+        "2.4%",
+        "3.6%"
+      ],
+      "section": "lfo"
+    }
+  ],
+  "mixer": [
+    {
+      "id": "mixer-level",
+      "label": "Level",
+      "tip": "0-127. Per-sound volume to the mix bus.",
+      "rect": [
+        "50.1%",
+        "38.2%",
+        "2.4%",
+        "3.6%"
+      ],
+      "section": "mixer"
+    },
+    {
+      "id": "mixer-pan",
+      "label": "Pan",
+      "tip": "Stereo position. Affects feedback loop behavior.",
+      "rect": [
+        "55.8%",
+        "44.7%",
+        "1.6%",
+        "2.4%"
+      ],
+      "section": "mixer"
+    },
+    {
+      "id": "mixer-delay-send",
+      "label": "Delay Send",
+      "tip": "0-127. Amount sent to the beat delay effect.",
+      "rect": [
+        "55.7%",
+        "38.4%",
+        "2.3%",
+        "3.5%"
+      ],
+      "section": "mixer"
+    }
+  ],
+  "display": [
+    {
+      "id": "display-soft-1",
+      "label": "Soft 1",
+      "tip": "Context-dependent. Function shown on OLED screen.",
+      "rect": [
+        "66.6%",
+        "20.1%",
+        "2.3%",
+        "3.5%"
+      ],
+      "section": "display"
+    },
+    {
+      "id": "display-soft-2",
+      "label": "Soft 2",
+      "tip": "Context-dependent. Function shown on OLED screen.",
+      "rect": [
+        "71.7%",
+        "20.0%",
+        "2.4%",
+        "3.6%"
+      ],
+      "section": "display"
+    },
+    {
+      "id": "display-soft-3",
+      "label": "Soft 3",
+      "tip": "Context-dependent. Function shown on OLED screen.",
+      "rect": [
+        "76.6%",
+        "20.1%",
+        "2.3%",
+        "3.5%"
+      ],
+      "section": "display"
+    },
+    {
+      "id": "display-soft-4",
+      "label": "Soft 4",
+      "tip": "Context-dependent. Function shown on OLED screen.",
+      "rect": [
+        "81.7%",
+        "20.2%",
+        "2.2%",
+        "3.3%"
+      ],
+      "section": "display"
+    }
+  ]
+}

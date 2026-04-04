@@ -1,0 +1,62 @@
+{
+  "osc": {
+    "left": 15.100000000000001,
+    "top": 25.5,
+    "width": 21.1,
+    "height": 9.7
+  },
+  "lpf": {
+    "left": 41.8,
+    "top": 26.3,
+    "width": 19.3,
+    "height": 8.1
+  },
+  "hpf": {
+    "left": 58.8,
+    "top": 26.5,
+    "width": 7.8,
+    "height": 7.8
+  },
+  "amp": {
+    "left": 64.6,
+    "top": 26.6,
+    "width": 12.6,
+    "height": 7.6
+  },
+  "env": {
+    "left": 17.9,
+    "top": 31.1,
+    "width": 27.0,
+    "height": 14.1
+  },
+  "lfo": {
+    "left": 41.7,
+    "top": 36.4,
+    "width": 8.0,
+    "height": 8.0
+  },
+  "mixer": {
+    "left": 47.2,
+    "top": 36.0,
+    "width": 19.6,
+    "height": 8.3
+  },
+  "display": {
+    "left": 66.5,
+    "top": 28.7,
+    "width": 18.4,
+    "height": 15.1
+  },
+  "master": {
+    "left": 64.5,
+    "top": 17.6,
+    "width": 12.7,
+    "height": 7.7
+  },
+  "fx-sliders": {
+    "left": 14.8,
+    "top": 58.4,
+    "width": 11.5,
+    "height": 23.6
+  }
+}

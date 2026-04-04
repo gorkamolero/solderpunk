@@ -1,0 +1,19 @@
+{
+  "name": "@solderpunk/tempest",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "vitest run",
+    "dev": "tsx scripts/cli.ts"
+  },
+  "dependencies": {
+    "midi": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}

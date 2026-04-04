@@ -1,0 +1,195 @@
+==========================================================================================
+Tempest Factory Programs & Sounds 1.4 ReadMe File                               Jan-2-2015
+==========================================================================================
+
+The folders Tempest_Factory_Projects_1.4 and Tempest_Factory_Sounds_1.4 contain all of the
+individual factory projects and sounds for Tempest OS v1.4. The individual files are in
+MIDI System Exclusive (SysEx) format. You will need a DAW, MIDI utility, or other
+application capable of opening and sending MIDI System Exclusive (SysEx) messages. MIDI-OX
+(Windows) and SysEx Librarian (Mac OS) are shareware MIDI utilities that can reliably be
+used to update DSI instruments. You will also need either a USB cable (Type A to Type B
+connectors, like a typical USB printer cable) or a MIDI interface to transmit the SysEx
+file from your computer to the Tempest.
+
+You will find instructions for updating using MIDI-OX and SysEx Librarian below.
+
+
+************************************* IMPORTANT NOTE *************************************
+
+Project and Beat Compatibility with Older OS Versions Tempest’s internal file format has
+changed with OS version 1.4. This affects project and beat compatibility with older
+versions of the OS. Please be aware of the following before you update your Tempest to OS
+1.4:
+
+-- Projects and Beats made on previous OS versions will load and play correctly on OS 1.4.
+
+-- If Projects and Beats made on a pre-1.4 OS are modified and saved, or exported from a
+Tempest with OS 1.4, they will NOT be compatible with a Tempest with a pre-1.4 OS.
+
+-- If Projects and Beats made on a pre-1.4 OS are NOT modified and saved, or exported from
+Tempest with OS 1.4, they will still be compatible with a Tempest with a pre-1.4 OS (if
+you downgrade your Tempest OS to an older version, for example).
+
+If there is a chance that you might use your current, pre-OS 1.4 Projects and Beats on a
+Tempest with an older OS, export and back them up before you upgrade to OS 1.4.
+
+
+******************************************************************************************
+
+CHECKING AVAILABLE MEMORY FOR PROJECTS AND BEATS
+
+Tempest will not inform you if it runs out of memory while importing new projects via
+MIDI/USB. Instead, it will continue to display a “Receiving SysEx…” message on its screen.
+For this reason, we recommend that you check how much memory is available in your Tempest
+before downloading new Projects or Beats.
+
+To check available memory in your Tempest:
+
+1. Press the Save/Load button. The amount of unused Project/Beat memory is displayed at
+the bottom of the screen in the following format: free: x.x MB.
+
+2. Press the Save/Load button to exit.
+
+Each project requires approximately 65kB – 130kB, depending on how many sounds it
+contains. In the new OS 1.4 sound set, most projects are nearly 130kB in size because they
+utilize all 32 sounds available per project. Using this as a guideline, you can calculate
+roughly how many Projects or Beats you can load successfully.
+
+We recommend that you load new projects one at a time in case you run out of available
+memory. This way, if the Tempest finishes the import quickly, you’ll know you were
+successful. Conversely, if after loading a new project the screen continuously displays
+“Receiving SysEx…”, the memory is likely full and the download will be unsuccessful. In
+this case, press the lower left Soft Key (cancel) to exit the screen. You should then
+delete some Projects or Beats to free up memory, then try to import the file again.
+
+
+CHECKING AVAILABLE MEMORY FOR SOUNDS
+
+Tempest holds approximately 650 Sounds in memory at any one time. The portion of Tempest’s
+memory allocated to Sound storage is separate from that allocated to Projects and Beats.
+For this reason, filling up the Sounds memory will not reduce the number of Projects or
+Beats you can store.
+
+The new OS 1.4 sound set contains 416 new Sounds in 10 categories. There are 10 SysEx
+files (one for each sound category) that can be imported into Tempest individually. Each
+category is labeled and has the number of Sounds that it contains at the end of its
+filename for easy identification and planning.
+
+If there are not enough free memory slots for Sounds when they are loaded, Tempest will
+display an error code. For this reason, we recommend that you check how much memory is
+available in your Tempest before downloading new Sounds. If you find that there are not
+enough free slots, delete some sounds to make room. Consult your Tempest manual for
+instructions on how to do this.
+
+To check available memory for Sounds in your Tempest:
+
+1. Press the Save/Load button.
+
+2. In the display, turn soft knob 1 (Select) to select item 10 (Delete File).
+
+3. Press the top left soft button (Next).
+
+4. If its not already selected, turn soft knob 1 (Type) to select Sounds. The number of
+free sound slots is displayed at the bottom of the screen in the following format: free:
+(number of sounds).
+
+5. Press the Save/Load button to exit.
+
+You now know how many individual sounds you can load successfully.
+
+
+__________________________________________________________________________________________
+
+LOADING PROGRAMS FROM WINDOWS USING MIDI-OX
+
+Before starting, close all other audio or MIDI or DAW software, and disconnect all other
+MIDI devices. If necessary, download and install MIDI-OX.
+
+NOTE: Tempest can only be updated via USB after Main OS version 1.2 is installed. If your
+Main OS reads less than 1.2, you'll need to update via the MIDI jacks first.
+
+http://www.midiox.com/
+
+1. Download and install MIDIOX.
+
+2. Decide if you're going to update via the MIDI jacks or USB.
+
+3. Press the System button on the Tempest and navigate to the "MIDI: SysEx IN+OUT Cable"
+option.
+
+4. Select either "MIDI" (for the MIDI jacks) or "USB."
+
+5. Connect your computer to the Tempest using either a USB cable or a MIDI interface,
+depending on which of these you have chosen in the steps above.
+
+6. Run MIDI-OX.
+
+7. From the Options menu, choose “MIDI Devices.”
+
+8. In the lower left quadrant of the window, select the MIDI port to which the instrument
+is connected. If connected via USB, choose “Tempest” (or “USB Audio Device” under Windows
+XP). If connected via MIDI, choose the MIDI interface. The selected MIDI port appears in
+the Port Mappings window.
+
+9. Click OK to close the dialog and save the settings.
+
+10. From the View menu, choose “SysEx.”
+
+11. From the SysEx menu, choose “Configure.”
+
+12. Set the Low Level Output Buffers “Num” and “Size” to 1024.
+
+13. Under Output Timing, make sure that “Auto-adjust Buffer Delays if necessary” is NOT
+enabled and that “Delay After F7″ IS enabled.
+
+14. Set Delay Between Buffers to 375 Milliseconds and Delay After F7 to 1000 milliseconds.
+
+15. Click OK to close the dialog and save the settings.
+
+16. From the Command Window menu, choose “Load File.” Browse to and open the SysEx file.
+
+17. From the Command Window menu, choose “Send SysEx.” The programs will increment on the
+Tempest as each program file is transferred to it.
+
+
+__________________________________________________________________________________________
+
+LOADING PROGRAMS FROM A MAC USING SYSEX LIBRARIAN
+
+Before starting, close all other audio or MIDI or DAW software, and disconnect all other
+MIDI devices. If necessary, download and install SysEx Librarian.
+
+NOTE: Tempest can only be updated via USB after Main OS version 1.2 is installed. If your
+Main OS reads less than 1.2, you'll need to update via the MIDI jacks first.
+
+www.snoize.com/sysexlibrarian
+
+1. Download and install SysEx Librarian.
+
+2. Decide if you're going to update via the MIDI jacks or USB.
+
+3. Press the System button on the Tempest and navigate to the "MIDI: SysEx IN+OUT Cable"
+option.
+
+4. Select either "MIDI" (for the MIDI jacks) or "USB."
+
+5. Connect your computer to the Tempest using either a USB cable or a MIDI interface,
+depending on which of these you have chosen in the steps above.
+
+6. Run SysEx Librarian.
+
+7. From the SysEx Librarian menu, choose "Preferences."
+
+8. In the General tab, set "Pause between played messages" to 1 second.
+
+9. Close the SysEx Librarian Preferences window to save changes.
+
+10. Choose your MIDI interface from the "Destination" menu.
+
+11. Click Add/+ to add the file to the file list or simply drag and drop the file on the
+open SysEx Librarian window. The file name appears in the file list and should be
+highlighted.
+
+12. Click Play. The programs will increment on the Tempest as each program file is
+transferred to it.
+

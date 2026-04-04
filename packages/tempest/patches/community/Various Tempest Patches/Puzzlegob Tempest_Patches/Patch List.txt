@@ -1,0 +1,104 @@
+[Kicks]
+
+Atari Kick
+Quick Kick
+Beefy Kick
+Muted Kick Short
+Farty Bath Kick
+Punch Kick
+Echo Drama Kick
+
+[Snares]
+
+Mamu Rimshot
+Woody Snare
+Crispy Snare
+Laser Snap
+Clean Clap
+I Am a Snare
+Cheap Clap
+Fresh Clap
+Sharp Rimshot
+LFO Long Snare
+Broke Rimshot
+NRLog Clap
+
+[HiHats]
+
+Mamu CH
+Shaker
+Micron CH
+Laser OH
+Laser CH
+Tambo Click
+Classy OH
+Classy CH
+Needle CH
+Sharp CH
+Wimpy Click
+NRLog OH
+NRLog CH
+
+[Noise]
+
+Shove It!
+Swoop
+Noise Click
+Swish HP Noise
+Baby Blip
+Lil' Swoosh
+Clunk Drop
+
+[Bass]
+
+Liquid Bass
+Shiny Bass
+Meany Bass
+Dopey Wobble
+Long Sub Bass
+Sync Deep Bass
+LFO Surfa Bass
+Detuned Bass
+Slow Rising Bass
+Ominous Deep Reso
+Chubby Bass
+Attack Rez Bass
+Basic Seq Bass
+Gastro Sync Bass
+
+[Lead]
+
+Reso Sync Glider
+Glide Clean Acid
+Electric Byte
+Tokyo 4th Jive
+Fluffy HP Synth
+Lolwat Lead
+Fizzy Pad Hi
+Reso Lead
+
+[Misc]
+
+Initialize (Blank Patch)
+Rising Up
+Distant Laser
+Target Acquired
+Distant Sizzle
+Photon Beam
+Shroom Blast FBack
+Rewind
+Laser Zap
+Laser Cannons
+Laser Scratch
+PowerUp
+PowerUp 2
+
+
+
+
+
+
+
+
+
+
