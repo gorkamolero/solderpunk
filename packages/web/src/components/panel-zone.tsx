@@ -3,7 +3,7 @@
 import { useSynth } from '@/lib/synth-context'
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip'
 import { cn } from '@/lib/utils'
-import type { Zone } from '@/lib/tempest/types'
+import type { Zone } from '@/lib/shared-types'
 
 const groupColors: Record<string, string> = {
   synth: '#0af',

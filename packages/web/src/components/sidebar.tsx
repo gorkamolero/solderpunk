@@ -6,7 +6,7 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 import { Badge } from '@/components/ui/badge'
 import { TutorialView } from './tutorial-view'
 import { BookOpen, Disc3, ExternalLink, Download } from 'lucide-react'
-import type { SeedLesson } from '@/lib/tempest/types'
+import type { SeedLesson } from '@/lib/shared-types'
 
 function LessonCard({ lesson }: { lesson: SeedLesson }) {
   const { startTutorial } = useSynth()

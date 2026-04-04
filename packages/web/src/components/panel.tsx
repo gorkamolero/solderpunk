@@ -5,7 +5,7 @@ import { PanelZone } from './panel-zone'
 import { Legend } from './legend'
 
 export function Panel() {
-  const { zones, clearHighlight } = useSynth()
+  const { config, zones, clearHighlight } = useSynth()
 
   return (
     <div className="flex flex-col h-full overflow-hidden">
@@ -15,11 +15,11 @@ export function Panel() {
       >
         <div
           className="relative max-w-full max-h-full"
-          style={{ aspectRatio: '1200 / 799' }}
+          style={{ aspectRatio: config.panelAspectRatio }}
         >
           <img
-            src="/panel-nobg.png"
-            alt="DSI Tempest front panel"
+            src={config.panelImage}
+            alt={config.panelAlt}
             className="w-full h-full object-contain select-none"
             style={{
               border: '4px solid #1a1a1a',

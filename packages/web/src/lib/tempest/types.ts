@@ -1,28 +1,5 @@
-export interface Zone {
-  id: string
-  label: string
-  tip: string
-  rect: [string, string, string, string]
-  group?: string
-}
-
-export interface TutorialStep {
-  title?: string
-  focus?: string
-  body: string
-}
-
-export interface TutorialData {
-  type: 'tutorial'
-  steps: TutorialStep[]
-}
-
-export interface SeedLesson {
-  title: string
-  section_id: string
-  tags: string
-  content: TutorialData
-}
+// Re-export shared types for backward compatibility
+export type { Zone, TutorialStep, TutorialData, SeedLesson, LegendItem } from '@/lib/shared-types'
 
 export interface Lesson {
   id: number
