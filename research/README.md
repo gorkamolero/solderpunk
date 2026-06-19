@@ -28,6 +28,21 @@ Each `<id>/` holds `prompt.md` (the deep-research prompt), `claude.md`, and `cha
 | Moog Grandmother | [grandmother/](grandmother/) | fw v1.1.x; patchbay + MIDI CC → live-control candidate. |
 | Behringer Brains | [brains/](brains/) | Plaits-derived; CV only (no MIDI). Label engines Plaits-inherited vs Behringer. |
 
+## Primary manuals
+
+`<id>/manuals/` holds the actual cited source PDFs (downloaded + verified `%PDF`), the true primary sources behind the research:
+
+- **minitaur** — Owner's Manual, v2.2 Addendum, Editor User's Manual
+- **grandmother** — Owner's Manual v2, Global Settings, Lisa Bella Donna & Dark patchbooks
+- **zoia** — User Manual rev02, Euroburo Manual, 4.0 Sampler/Sequencer Guide, full changelog (fw 5.32)
+- **brains** — Plaits Quickstart (PDF) + Plaits Manual (HTML) — authoritative for the shared engines
+- **hector** — *(none yet)*
+
+**Known gaps** (host hard-blocks non-browser clients; grab via a real browser session if needed):
+- Hector manual — `storage.googleapis.com` returns 403 to curl (ACL/hotlink).
+- Brains V1.02 / V5.0 Behringer quick-starts — `manuals.plus` 403s bots; the Plaits docs above cover the inherited engines, the Behringer-specific engines are captured in the research docs.
+- Grandmother Mike Dean patchbook — the cited Moog URL now 404s (moved); minor.
+
 ## Roadmap
 
 [INTEGRATION_PLAN.md](INTEGRATION_PLAN.md) — phased, Codex-ready: land corpus (done) → skills →
