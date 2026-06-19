@@ -43,6 +43,24 @@ Each `<id>/` holds `prompt.md` (the deep-research prompt), `claude.md`, and `cha
 - Brains V1.02 / V5.0 Behringer quick-starts — `manuals.plus` 403s bots; the Plaits docs above cover the inherited engines, the Behringer-specific engines are captured in the research docs.
 - Grandmother Mike Dean patchbook — the cited Moog URL now 404s (moved); minor.
 
+## Querying the corpus (QMD)
+
+This corpus is indexed with [QMD](https://github.com/tobi/qmd) (`@tobilu/qmd`) — local hybrid
+search over the `.md` files: **BM25 + vector (EmbeddingGemma-300M) + LLM rerank**, all on-device.
+This is the "ask and use these things" layer — no re-researching, no cloud.
+
+```bash
+qmd query "growly reese bass"     # hybrid (expansion + rerank) — recommended
+qmd search "patchbay normals"     # BM25 only, instant, no model
+qmd vsearch "self-oscillating filter as a sine voice"   # vector only
+```
+
+- Collection `research` points at this folder (`**/*.md`); 22 docs → 360 embedded chunks.
+- **Claude uses it automatically** via the installed `qmd` skill (`~/.claude/skills/qmd`): ask about
+  any instrument and Claude queries the corpus and answers cited.
+- **Adding a new instrument** = drop its `.md` into `research/<id>/`, then `qmd update && qmd embed`.
+- The index (`~/.cache/qmd/index.sqlite`) is a local cache — regenerable, not committed.
+
 ## Roadmap
 
 [INTEGRATION_PLAN.md](INTEGRATION_PLAN.md) — phased, Codex-ready: land corpus (done) → skills →
