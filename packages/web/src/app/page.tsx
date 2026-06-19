@@ -68,6 +68,55 @@ const synths = [
   },
 ]
 
+const steps = [
+  {
+    n: '01',
+    title: 'Pick a synth',
+    desc: 'Choose any instrument from the rack below — from the Tempest to the ZOIA grid.',
+    color: '#5b8def',
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" />
+        <rect x="3" y="14" width="7" height="7" /><rect x="14" y="14" width="7" height="7" />
+      </svg>
+    ),
+  },
+  {
+    n: '02',
+    title: 'Hover to learn',
+    desc: 'Every knob, jack, and button on the real panel is annotated. Hover any control to see exactly what it does.',
+    color: '#0af',
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <path d="M4 4l7 16 2.5-6.5L20 11z" /><path d="M14 14l5 5" />
+      </svg>
+    ),
+  },
+  {
+    n: '03',
+    title: 'Follow tutorials',
+    desc: 'Guided lessons walk you through real patches — from your first sound to the tricks buried in the manual.',
+    color: '#e8a33d',
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <path d="M3 5a2 2 0 012-2h6v16H5a2 2 0 00-2 2zM21 5a2 2 0 00-2-2h-6v16h6a2 2 0 012 2z" />
+      </svg>
+    ),
+  },
+  {
+    n: '04',
+    title: 'Plug in & ask',
+    desc: 'Drive supported synths live over MIDI, and ask the built-in AI anything — answers grounded in cited research.',
+    color: '#ff4d4d',
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <line x1="4" y1="8" x2="20" y2="8" /><circle cx="9" cy="8" r="2.5" fill="currentColor" />
+        <line x1="4" y1="16" x2="20" y2="16" /><circle cx="15" cy="16" r="2.5" fill="currentColor" />
+      </svg>
+    ),
+  },
+]
+
 export default function Home() {
   return (
     <div
@@ -116,7 +165,7 @@ export default function Home() {
             className="text-xs font-bold uppercase tracking-[0.2em]"
             style={{ color: '#ff4d4d' }}
           >
-            /// Interactive Hardware Exploration
+            {'/// Interactive Hardware Exploration'}
           </p>
           <h2
             className="text-3xl sm:text-4xl font-extrabold uppercase tracking-wider leading-tight"
@@ -132,6 +181,43 @@ export default function Home() {
             Hover over panel zones, follow guided tutorials, and discover hidden features
             you never knew existed. Pick a synth to begin.
           </p>
+        </div>
+      </div>
+
+      {/* How it works */}
+      <div className="max-w-6xl mx-auto w-full px-6 pb-12">
+        <p
+          className="text-xs font-bold uppercase tracking-[0.2em] mb-5"
+          style={{ color: '#1a1a1a' }}
+        >
+          {'/// How it works'}
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {steps.map((step) => (
+            <div
+              key={step.n}
+              className="flex flex-col gap-3 p-5"
+              style={{
+                background: '#f5f0e8',
+                border: '4px solid #1a1a1a',
+                boxShadow: '6px 6px 0 #1a1a1a',
+              }}
+            >
+              <div className="flex items-center justify-between" style={{ color: step.color }}>
+                {step.icon}
+                <span className="text-2xl font-extrabold tracking-wider">{step.n}</span>
+              </div>
+              <h3
+                className="text-base font-extrabold uppercase tracking-wider"
+                style={{ color: '#1a1a1a' }}
+              >
+                {step.title}
+              </h3>
+              <p className="text-xs leading-relaxed" style={{ color: '#666' }}>
+                {step.desc}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
 

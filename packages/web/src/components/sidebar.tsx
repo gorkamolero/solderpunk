@@ -5,8 +5,9 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Badge } from '@/components/ui/badge'
 import { TutorialView } from './tutorial-view'
-import { BookOpen, Disc3, ExternalLink, Download } from 'lucide-react'
-import type { SeedLesson } from '@/lib/shared-types'
+import { BookOpen, Disc3, ExternalLink, Heart, Download } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import type { SeedLesson, PatchLink, PatchSource } from '@/lib/shared-types'
 
 function LessonCard({ lesson }: { lesson: SeedLesson }) {
   const { startTutorial } = useSynth()
@@ -85,102 +86,200 @@ function LessonList() {
   )
 }
 
-const patchCollections = [
-  { name: 'Hardwarecore Soundset', count: 64, desc: 'Pads, bass, leads, kicks', file: 'hardwarecore/' },
-  { name: 'Leviathant TR-606/DR-110', count: 32, desc: 'Analog drum emulations from a year of sound design', file: 'leviathant-606-110/' },
-  { name: 'Tim Mantle / Psalm37', count: 288, desc: '128 synth + 160 drum sounds — pads, leads, bass, percussion', file: 'tim-mantle/' },
-  { name: 'Deep Mind Dark', count: 512, desc: '256 synth + 256 percussion by Peter Jaczewski', file: 'deep-mind-dark/' },
-  { name: 'Deep Mind Dark Mopho', count: 384, desc: 'Mopho presets ported to Tempest — includes BladeRunner patch', file: 'deep-mind-dark-mopho/' },
-  { name: 'Sylvain Moreau BD1', count: 41, desc: 'Expertly designed kick drums with programming notes', file: 'sylvain-moreau-bd1/' },
-  { name: 'Polyrhythm Templates', count: 18, desc: 'Every polyrhythm/polymeter combo + Berlin School', file: 'polyrhythm-templates/' },
-  { name: 'Community Archive', count: 403, desc: '808 Turbo, CBMD Analog Drums, Sound Contest 414, StimPack, Chiptune', file: 'community/' },
-]
+const cardStyle = {
+  background: '#f5f0e8',
+  border: '3px solid #1a1a1a',
+  boxShadow: '4px 4px 0 #1a1a1a',
+  transition: 'transform 0.1s, box-shadow 0.1s',
+} as const
 
-const resources = [
-  { name: 'Sequential Forum Thread', url: 'https://forum.sequential.com/index.php?topic=34.0', desc: 'Community patches & tips (72+ replies, 216K views)' },
-  { name: "Stim's Tempest Recipes", url: 'http://noisylittlebugger.net/', desc: '16 synthesis tutorials with exact values' },
-  { name: 'PresetPatch.com', url: 'https://www.presetpatch.com/synth/dsi-tempest', desc: 'Individual .syx downloads' },
-  { name: 'Leviathant Drums', url: 'https://www.bitrotten.com/tempest/', desc: 'TR-606 & DR-110 emulations (donation-ware)' },
-  { name: 'Hardwarecore', url: 'https://hardwarecore.wordpress.com/2015/06/01/dsi-tempest-soundset-hardwarecore-1/', desc: '64 patches, originally $10, now free' },
-  { name: 'Tim Mantle / Psalm37', url: 'https://timmantle.com', desc: '288 patches — pro sound designer (paid, \u00A35\u201310)' },
-  { name: 'Deep Mind Dark', url: 'https://gumroad.com', desc: '512 sounds by Peter Jaczewski ($17)' },
-  { name: 'Deep Mind Dark Mopho', url: 'https://bandcamp.com', desc: '384 Mopho ports incl. BladeRunner ($17)' },
-  { name: 'Sylvain Moreau BD1', url: 'https://sylvainmoreau.com', desc: '41 expertly designed kick drums' },
-  { name: 'HelloSamples', url: 'https://hellosamples.com', desc: '4,000+ WAV one-shots, unprocessed (\u20AC22\u201334)' },
-  { name: 'Sound Randomizer', url: 'https://forum.sequential.com/index.php?topic=34.0', desc: 'Free online random patch generator' },
-  { name: 'midi.link Exchange', url: 'https://forum.sequential.com/index.php?topic=34.0', desc: '288 new community sounds' },
-]
+function lift(e: React.MouseEvent<HTMLElement>) {
+  e.currentTarget.style.transform = 'translate(-1px, -1px)'
+  e.currentTarget.style.boxShadow = '5px 5px 0 #1a1a1a'
+}
+function drop(e: React.MouseEvent<HTMLElement>) {
+  e.currentTarget.style.transform = 'none'
+  e.currentTarget.style.boxShadow = '4px 4px 0 #1a1a1a'
+}
 
-function PatchList() {
+function LinkCard({ item }: { item: PatchLink }) {
+  return (
+    <a
+      href={item.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block p-3 no-underline"
+      style={cardStyle}
+      onMouseEnter={lift}
+      onMouseLeave={drop}
+    >
+      <div className="flex items-center justify-between gap-2 mb-1">
+        <div className="flex items-center gap-2 min-w-0">
+          <h4 className="text-sm font-extrabold uppercase tracking-wider leading-tight truncate" style={{ color: '#1a1a1a' }}>
+            {item.name}
+          </h4>
+          <ExternalLink size={12} strokeWidth={3} style={{ color: '#0af' }} className="shrink-0" />
+        </div>
+        {item.badge && (
+          <span
+            className="shrink-0 text-[9px] font-bold uppercase px-1.5 py-0.5"
+            style={{ background: '#0af', color: '#1a1a1a', border: '2px solid #1a1a1a' }}
+          >
+            {item.badge}
+          </span>
+        )}
+      </div>
+      <p className="text-[11px] leading-relaxed" style={{ color: '#666' }}>{item.desc}</p>
+    </a>
+  )
+}
+
+/** Curated, link-verified external sources (synths not on Patchstorage). */
+function CuratedLinks({ intro, groups }: { intro?: string; groups: { heading: string; color: string; items: PatchLink[] }[] }) {
+  return (
+    <div className="space-y-6">
+      {intro && <p className="text-[11px] leading-relaxed px-1" style={{ color: '#666' }}>{intro}</p>}
+      {groups.map((group) => (
+        <div key={group.heading} className="space-y-3">
+          <h3 className="text-xs font-extrabold uppercase tracking-widest px-1" style={{ color: group.color }}>
+            {`/// ${group.heading}`}
+          </h3>
+          {group.items.map((item) => (
+            <LinkCard key={item.url + item.name} item={item} />
+          ))}
+        </div>
+      ))}
+    </div>
+  )
+}
+
+interface LivePatch {
+  id: string
+  title: string
+  url: string
+  author: string
+  tags: string[]
+  likes: number
+  downloads: number
+}
+
+/** Live community feed (Patchstorage or midi.link), fetched from /api/patches. */
+function LivePatchList({ endpoint, heading, browseUrl, browseLabel }: {
+  endpoint: string; heading: string; browseUrl: string; browseLabel: string
+}) {
+  const [patches, setPatches] = useState<LivePatch[] | null>(null)
+  const [error, setError] = useState(false)
+
+  useEffect(() => {
+    // endpoint is fixed per page; setState only runs in the async callbacks.
+    let alive = true
+    fetch(endpoint)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d) => { if (alive) setPatches(d.patches ?? []) })
+      .catch(() => { if (alive) setError(true) })
+    return () => { alive = false }
+  }, [endpoint])
+
+  return (
+    <div className="space-y-3">
+      <h3 className="text-xs font-extrabold uppercase tracking-widest px-1" style={{ color: '#ff4d4d' }}>
+        {`/// ${heading}`}
+      </h3>
+
+      {!patches && !error && (
+        <p className="text-[11px] px-1" style={{ color: '#666' }}>Loading community patches…</p>
+      )}
+      {error && (
+        <p className="text-[11px] px-1" style={{ color: '#666' }}>Couldn&apos;t reach the feed — browse directly below.</p>
+      )}
+
+      {patches?.map((p) => (
+        <a
+          key={p.id}
+          href={p.url || browseUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block p-3 no-underline"
+          style={cardStyle}
+          onMouseEnter={lift}
+          onMouseLeave={drop}
+        >
+          <div className="flex items-center justify-between gap-2 mb-1">
+            <h4 className="text-sm font-extrabold uppercase tracking-wider leading-tight truncate" style={{ color: '#1a1a1a' }}>
+              {p.title}
+            </h4>
+            <ExternalLink size={12} strokeWidth={3} style={{ color: '#0af' }} className="shrink-0" />
+          </div>
+          <p className="text-[11px] mb-2" style={{ color: '#666' }}>by {p.author}</p>
+          <div className="flex flex-wrap items-center gap-2">
+            {p.tags.slice(0, 3).map((t) => (
+              <Badge key={t} variant="outline" className="text-[9px]">{t}</Badge>
+            ))}
+            {(p.likes > 0 || p.downloads > 0) && (
+              <span className="flex items-center gap-1 text-[10px] font-bold ml-auto" style={{ color: '#1a1a1a' }}>
+                <Heart size={10} strokeWidth={3} /> {p.likes}
+                <Download size={10} strokeWidth={3} className="ml-1.5" /> {p.downloads}
+              </span>
+            )}
+          </div>
+        </a>
+      ))}
+
+      <a
+        href={browseUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center gap-1.5 p-2 no-underline text-[11px] font-bold uppercase tracking-wider"
+        style={{ border: '3px solid #1a1a1a', color: '#0af', background: '#e8e3db' }}
+      >
+        {browseLabel} <ExternalLink size={12} strokeWidth={3} />
+      </a>
+    </div>
+  )
+}
+
+function PatchSection({ source }: { source: PatchSource }) {
+  if (source.type === 'patchstorage') {
+    return (
+      <LivePatchList
+        endpoint={`/api/patches?platform=${source.platformId}`}
+        heading="Most-loved on Patchstorage"
+        browseUrl={source.platformUrl}
+        browseLabel="Browse all on Patchstorage"
+      />
+    )
+  }
+  if (source.type === 'midilink') {
+    return (
+      <LivePatchList
+        endpoint={`/api/patches?midilink=${source.instrumentPath}`}
+        heading="Community patches on midi.link"
+        browseUrl={source.browseUrl}
+        browseLabel="Open midi.link"
+      />
+    )
+  }
+  return <CuratedLinks intro={source.intro} groups={source.groups} />
+}
+
+function PatchPanel() {
+  const { config } = useSynth()
+  const src = config.patchSource
+
+  if (!src) {
+    return (
+      <div className="p-4">
+        <p className="text-[11px]" style={{ color: '#666' }}>No patch sources catalogued for this instrument yet.</p>
+      </div>
+    )
+  }
+  const sources = Array.isArray(src) ? src : [src]
   return (
     <ScrollArea className="flex-1 min-h-0">
-      <div className="p-4 space-y-6">
-        <div className="space-y-3">
-          <h3 className="text-xs font-extrabold uppercase tracking-widest px-1" style={{ color: '#ff4d4d' }}>
-            {'/// Patch Collections'}
-          </h3>
-          {patchCollections.map((col) => (
-            <div
-              key={col.name}
-              className="p-3"
-              style={{ background: '#f5f0e8', border: '3px solid #1a1a1a', boxShadow: '4px 4px 0 #1a1a1a' }}
-            >
-              <div className="flex items-start justify-between gap-2 mb-1">
-                <h4 className="text-sm font-extrabold uppercase tracking-wider leading-tight" style={{ color: '#1a1a1a' }}>
-                  {col.name}
-                </h4>
-                <span
-                  className="shrink-0 text-[10px] font-bold px-1.5 py-0.5"
-                  style={{ background: '#0af', color: '#1a1a1a', border: '2px solid #1a1a1a' }}
-                >
-                  {col.count} SYX
-                </span>
-              </div>
-              <p className="text-[11px] mb-2" style={{ color: '#666' }}>{col.desc}</p>
-              <div className="flex items-center gap-1 text-[10px] font-bold uppercase" style={{ color: '#0af' }}>
-                <Download size={10} strokeWidth={3} />
-                {col.file}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="space-y-3">
-          <h3 className="text-xs font-extrabold uppercase tracking-widest px-1" style={{ color: '#0af' }}>
-            {'/// Resources'}
-          </h3>
-          {resources.map((res) => (
-            <a
-              key={res.name}
-              href={res.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block p-3 no-underline"
-              style={{
-                background: '#f5f0e8',
-                border: '3px solid #1a1a1a',
-                boxShadow: '4px 4px 0 #1a1a1a',
-                transition: 'transform 0.1s, box-shadow 0.1s',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translate(-1px, -1px)'
-                e.currentTarget.style.boxShadow = '5px 5px 0 #1a1a1a'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'none'
-                e.currentTarget.style.boxShadow = '4px 4px 0 #1a1a1a'
-              }}
-            >
-              <div className="flex items-center gap-2 mb-1">
-                <h4 className="text-sm font-extrabold uppercase tracking-wider leading-tight" style={{ color: '#1a1a1a' }}>
-                  {res.name}
-                </h4>
-                <ExternalLink size={12} strokeWidth={3} style={{ color: '#0af' }} />
-              </div>
-              <p className="text-[11px]" style={{ color: '#666' }}>{res.desc}</p>
-            </a>
-          ))}
-        </div>
+      <div className="p-4 space-y-8">
+        {sources.map((s, i) => (
+          <PatchSection key={i} source={s} />
+        ))}
       </div>
     </ScrollArea>
   )
@@ -213,7 +312,7 @@ export function Sidebar() {
       </TabsContent>
 
       <TabsContent value="patches" className="flex-1 flex flex-col overflow-hidden min-h-0">
-        <PatchList />
+        <PatchPanel />
       </TabsContent>
     </Tabs>
   )

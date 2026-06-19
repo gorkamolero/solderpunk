@@ -14,4 +14,9 @@ export const zoiaConfig: SynthConfig = {
   zones,
   legendItems,
   lessons: seedLessons,
+  patchSource: {
+    type: 'patchstorage',
+    platformId: 3003,
+    platformUrl: 'https://patchstorage.com/platform/zoia/',
+  },
 }

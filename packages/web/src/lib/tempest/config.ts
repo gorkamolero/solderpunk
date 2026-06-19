@@ -13,4 +13,35 @@ export const tempestConfig: SynthConfig = {
   zones,
   legendItems,
   lessons: seedLessons,
+  patchSource: [
+    {
+      type: 'midilink',
+      instrumentPath: 'tempest',
+      browseUrl: 'https://midi.link/instruments/tempest',
+    },
+    {
+      type: 'links',
+      groups: [
+        {
+          heading: 'Sounds & Patches',
+          color: '#ff4d4d',
+          items: [
+            { name: 'Sequential — Factory Sounds', url: 'https://sequential.com/tempest-factory-sounds/', desc: 'Official factory sound sets / projects for OS 1.0–1.4, in SysEx.', badge: 'Official' },
+            { name: 'Sequential Forum — Patch Exchange', url: 'https://forum.sequential.com/index.php?topic=34.0', desc: 'Community patch thread with a shared-patches zip and synthesis tips.', badge: 'Forum' },
+            { name: "Stim's Tempest Recipes", url: 'https://noisylittlebugger.net/tempest-recipes/', desc: '16-part sound-design series: kicks, snares, hats, bass, bells.', badge: 'Tutorial' },
+            { name: 'Hardwarecore #1 Soundset', url: 'https://hardwarecore.wordpress.com/2015/06/01/dsi-tempest-soundset-hardwarecore-1/', desc: 'Free 64-patch set (pads, bass, leads, bass drums) — once $10.', badge: 'Free' },
+            { name: 'Bitrotten — TR-606 / DR-110', url: 'https://www.bitrotten.com/tempest/', desc: "Leviathant's Roland analog-drum emulation SysEx set, donation-ware.", badge: 'Free' },
+            { name: 'PresetPatch — DSI Tempest', url: 'https://www.presetpatch.com/synth/dsi-tempest', desc: 'User-uploaded free Tempest patches plus commercial listings.', badge: 'Free' },
+          ],
+        },
+        {
+          heading: 'Premium Soundsets',
+          color: '#0af',
+          items: [
+            { name: 'Soundform — SFR Kicks V1.2', url: 'https://soundformrecordings.gumroad.com/l/jlpum', desc: '16 custom Tempest kick drums as a SysEx patch bank.', badge: 'Paid' },
+          ],
+        },
+      ],
+    },
+  ],
 }

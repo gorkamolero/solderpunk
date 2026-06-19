@@ -14,4 +14,9 @@ export const hectorConfig: SynthConfig = {
   zones,
   legendItems,
   lessons: seedLessons,
+  patchSource: {
+    type: 'patchstorage',
+    platformId: 3540,
+    platformUrl: 'https://patchstorage.com/platform/beebo-hector/',
+  },
 }

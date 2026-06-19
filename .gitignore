@@ -6,3 +6,7 @@ dist/
 *.db
 *.db-shm
 *.db-wal
+
+# product reference photos + local agent dir — not for the public repo
+research/*/panel-src/
+.agents/

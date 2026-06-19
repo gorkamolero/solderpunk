@@ -32,6 +32,24 @@ export interface LegendItem {
   color: string
 }
 
+/** A single verified external place to get sounds/patches for a synth. */
+export interface PatchLink {
+  name: string
+  url: string
+  desc: string
+  /** Short tag, e.g. "Free", "Paid", "Forum", "Official". */
+  badge?: string
+}
+
+/** One section of the Patches tab. A synth can combine several (e.g. a live feed + curated links). */
+export type PatchSource =
+  /** Live feed from the Patchstorage community API (ZOIA, Hector). */
+  | { type: 'patchstorage'; platformId: number; platformUrl: string }
+  /** Live feed from midi.link's public Firestore (Tempest). */
+  | { type: 'midilink'; instrumentPath: string; browseUrl: string }
+  /** Hand-curated, link-verified external sources. */
+  | { type: 'links'; intro?: string; groups: { heading: string; color: string; items: PatchLink[] }[] }
+
 export interface SynthConfig {
   id: string
   name: string
@@ -48,4 +66,6 @@ export interface SynthConfig {
   ccMap?: Record<string, number>
   /** Default MIDI channel (1-16) to send on. Defaults to 1. */
   midiChannel?: number
+  /** Source(s) for the Patches tab: one section, or several rendered in order. */
+  patchSource?: PatchSource | PatchSource[]
 }
