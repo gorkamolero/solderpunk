@@ -33,15 +33,13 @@ Each `<id>/` holds `prompt.md` (the deep-research prompt), `claude.md`, and `cha
 `<id>/manuals/` holds the actual cited source PDFs (downloaded + verified `%PDF`), the true primary sources behind the research:
 
 - **minitaur** — Owner's Manual, v2.2 Addendum, Editor User's Manual
-- **grandmother** — Owner's Manual v2, Global Settings, Lisa Bella Donna & Dark patchbooks
+- **grandmother** — Owner's Manual v2, Global Settings, Lisa Bella Donna + Dark + Mike Dean patchbooks
 - **zoia** — User Manual rev02, Euroburo Manual, 4.0 Sampler/Sequencer Guide, full changelog (fw 5.32)
-- **brains** — Plaits Quickstart (PDF) + Plaits Manual (HTML) — authoritative for the shared engines
-- **hector** — *(none yet)*
+- **brains** — Behringer quick-starts V1.02 (20-engine) + V5.0 (24-engine) + Plaits Quickstart + Plaits Manual (HTML)
+- **hector** — official "Hector and Beebo Manual" (97 pp, Poly Effects)
 
-**Known gaps** (host hard-blocks non-browser clients; grab via a real browser session if needed):
-- Hector manual — `storage.googleapis.com` returns 403 to curl (ACL/hotlink).
-- Brains V1.02 / V5.0 Behringer quick-starts — `manuals.plus` 403s bots; the Plaits docs above cover the inherited engines, the Behringer-specific engines are captured in the research docs.
-- Grandmother Mike Dean patchbook — the cited Moog URL now 404s (moved); minor.
+All cited primary sources are archived locally. The host blocks (GCS 403, manuals.plus 403, Moog 404)
+were worked around via the Wayback Machine and proper request headers (UA + Referer + `Accept`).
 
 ## Querying the corpus (QMD)
 
