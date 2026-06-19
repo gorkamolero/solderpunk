@@ -8,7 +8,7 @@ export const hectorConfig: SynthConfig = {
   description:
     'Touchscreen virtual-modular Eurorack module — ~100 LV2 modules (Mutable ports, granular, NAM amp capture, Loopler) patched on a screen, with 6 in / 8 out that are all CV + audio.',
   panelImage: '/hector-panel.png',
-  panelAspectRatio: '1800 / 1092',
+  panelAspectRatio: '1800 / 1200',
   panelAlt: 'Poly Effects Hector Eurorack module',
   defaultMessage: 'Poly Effects Hector Explorer — hover over zones to learn, pick a tutorial to begin.',
   zones,

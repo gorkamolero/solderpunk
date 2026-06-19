@@ -8,7 +8,7 @@ export const zoiaConfig: SynthConfig = {
   description:
     'Grid-based modular synth / effects platform in a pedal — 80+ modules you patch on an 8×5 button grid into synth voices, sequencers, effect chains, or a whole virtual pedalboard.',
   panelImage: '/zoia-panel.png',
-  panelAspectRatio: '1536 / 1024',
+  panelAspectRatio: '1600 / 1066',
   panelAlt: 'Empress ZOIA pedal',
   defaultMessage: 'Empress ZOIA Explorer — hover over zones to learn, pick a tutorial to begin.',
   zones,
