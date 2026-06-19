@@ -61,5 +61,12 @@ export const brainsConfig: SynthConfig = {
         { name: 'Brains vs Plaits Comparison', url: 'https://www.youtube.com/watch?v=Sqd59vtqHVA', desc: 'Side-by-side sound comparison of the two.', badge: 'Video' },
       ],
     },
+    {
+      heading: 'Community',
+      color: '#0af',
+      items: [
+        { name: 'ModWiggler — Brains Megathread', url: 'https://www.modwiggler.com/forum/viewtopic.php?t=249968', desc: 'The main Eurorack-forum thread — engines, firmware, tips, comparisons.', badge: 'Forum' },
+      ],
+    },
   ],
 }

@@ -50,6 +50,7 @@ export const minitaurConfig: SynthConfig = {
         { name: 'How To Make Kicks', url: 'https://www.youtube.com/watch?v=utNeTGo60bI', desc: 'Turning the bass mono into a punchy kick drum.', badge: 'Video' },
         { name: 'Bass Leads for Melodic Techno', url: 'https://www.youtube.com/watch?v=UVG8yRALF_Y', desc: 'Dialing in driving Minitaur bass/lead lines.', badge: 'Video' },
         { name: 'Berlin School Sketch', url: 'https://www.youtube.com/watch?v=rhmzRWOc0kA', desc: 'One-synth sequenced performance/sound-design.', badge: 'Video' },
+        { name: 'Minitaur Video Demo (Daniel Fisher)', url: 'https://www.sweetwater.com/insync/moog-minitaur-video-demo/', desc: 'Sweetwater InSync — best overall panel walkthrough.', badge: 'Demo' },
       ],
     },
     {

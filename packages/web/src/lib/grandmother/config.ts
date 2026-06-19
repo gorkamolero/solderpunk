@@ -63,10 +63,11 @@ export const grandmotherConfig: SynthConfig = {
       ],
     },
     {
-      heading: 'Playlists',
+      heading: 'Playlists & Courses',
       color: '#0af',
       items: [
         { name: 'Official Moog Tutorials', url: 'https://www.youtube.com/playlist?list=PLwKFiLdtN6B3XXcAU7y1ztii_7FSFqIaU', desc: "Moog's own Grandmother tutorial playlist.", badge: 'Playlist' },
+        { name: 'Grandmother 101 (Ask.Video)', url: 'https://macprovideo.com/course/moog-grandmother-101-explained-and-explored', desc: 'Rishabh Rajan — structured 21-video course (arp, seq, reverb, patchbay).', badge: 'Course' },
       ],
     },
   ],
