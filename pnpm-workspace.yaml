@@ -1,2 +1,18 @@
 packages:
   - "packages/*"
+# pnpm v11+ reads allowBuilds; pnpm v10 reads onlyBuiltDependencies. Keep both so install
+# works on any machine regardless of pnpm version.
+allowBuilds:
+  better-sqlite3: true
+  esbuild: true
+  midi: true
+  msw: true
+  sharp: true
+  unrs-resolver: true
+onlyBuiltDependencies:
+  - better-sqlite3
+  - esbuild
+  - sharp
+  - unrs-resolver
+  - midi
+  - msw
