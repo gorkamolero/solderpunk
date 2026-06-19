@@ -11,7 +11,8 @@ export function Panel() {
     <div className="flex flex-col h-full overflow-hidden">
       <div className="flex-1 flex items-center justify-center overflow-hidden bg-neo-charcoal">
         <div
-          className="relative max-w-full max-h-full aspect-[1200/799]"
+          className="relative max-w-full max-h-full"
+          style={{ aspectRatio: config.panelAspectRatio }}
         >
           <img
             src={config.panelImage}
