@@ -1,32 +1,35 @@
-# Research prompts
+# Research corpus
 
-Deep-research prompts for building each instrument's knowledge base. Paste one per
-run into a deep-research tool (Claude or ChatGPT), let it run, then centralize the
-output (with its source links) into that instrument's package.
+Deep-research corpora for each instrument, plus the prompts that generated them and the
+integration roadmap. This is the raw material that feeds solderpunk's three knowledge
+layers: **corpus → Claude skill → web explorer** (see [INTEGRATION_PLAN.md](INTEGRATION_PLAN.md)).
 
-## The method
+## The method (how Tempest & Tetra were built)
 
-How tempest and tetra were built — two layers:
+Two layers per instrument:
 
-1. **The manual (base).** Extract *everything* from the official manual(s) and
-   firmware notes: full architecture/signal path, every parameter with ranges,
-   exact operating procedures (every button press), complete MIDI implementation.
-2. **Internet custom tips (the gold).** Scour forums, Reddit, Discord, YouTube,
-   patch repositories, and obscure personal blogs for hidden features, firmware
-   secrets, power-user tricks, and sound/patch-design recipes with *exact* settings.
+1. **The manual (base).** Everything from the official manual + firmware notes: architecture,
+   every parameter/range, exact operating procedures, full MIDI/CV implementation.
+2. **Internet custom tips (the gold).** Forums, Reddit, Discord, YouTube, patch repos, obscure
+   blogs — hidden features, firmware secrets, power-user tricks, sound/patch recipes with exact settings.
 
-**Always keep a sources log with direct links to every source.** solderpunk will be
-released publicly, so attribution must be complete and links exact. Cite every
-non-trivial claim inline; end every report with an annotated link list.
+**Every source is logged with a direct link** (solderpunk ships publicly — attribution must be complete).
+Each instrument was researched twice (Claude + ChatGPT deep research) and both are kept.
 
-Output shape mirrors `packages/tetra/docs/tetra-complete-guide.md` +
-`resources.md` (the annotated link catalog) + the per-recipe attribution model in
-`packages/tempest/docs/sound-design-tips.md`.
+## Corpus
 
-## Prompts
+Each `<id>/` holds `prompt.md` (the deep-research prompt), `claude.md`, and `chatgpt.md`.
 
-- [zoia.md](zoia.md) — Empress Effects ZOIA / ZOIA Euroburo
-- [hector.md](hector.md) — Poly Effects Hector (and Beebo)
-- [minitaur.md](minitaur.md) — Moog Minitaur
-- [grandmother.md](grandmother.md) — Moog Grandmother
-- [brains.md](brains.md) — Behringer Brains (Plaits-derived multi-engine macro-oscillator)
+| Instrument | Folder | Firmware baseline / notes |
+|---|---|---|
+| Empress ZOIA / Euroburo | [zoia/](zoia/) | ChatGPT doc = fw **5.32** (newer than Claude's 5.00). Module-browser explorer. |
+| Poly Effects Hector / Beebo | [hector/](hector/) | fw 407-era; touchscreen → module-browser explorer; docs sparse (gaps flagged). |
+| Moog Minitaur | [minitaur/](minitaur/) | fw v2.2.2 final; full MIDI CC map → live-control candidate. |
+| Moog Grandmother | [grandmother/](grandmother/) | fw v1.1.x; patchbay + MIDI CC → live-control candidate. |
+| Behringer Brains | [brains/](brains/) | Plaits-derived; CV only (no MIDI). Label engines Plaits-inherited vs Behringer. |
+
+## Roadmap
+
+[INTEGRATION_PLAN.md](INTEGRATION_PLAN.md) — phased, Codex-ready: land corpus (done) → skills →
+web explorers (panel-hotspot for Minitaur/Grandmother/Brains, module-browser for ZOIA/Hector) →
+optional live MIDI control.
