@@ -1,6 +1,7 @@
 import type { SynthConfig } from '@/lib/shared-types'
 import { zones, legendItems } from './zones'
 import { seedLessons } from './lessons'
+import { ccMap } from './cc'
 
 export const minitaurConfig: SynthConfig = {
   id: 'minitaur',
@@ -14,4 +15,5 @@ export const minitaurConfig: SynthConfig = {
   zones,
   legendItems,
   lessons: seedLessons,
+  ccMap,
 }

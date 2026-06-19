@@ -43,4 +43,9 @@ export interface SynthConfig {
   zones: Zone[]
   legendItems: LegendItem[]
   lessons: SeedLesson[]
+  /** Optional zone-id -> MIDI CC number map. Present for synths the explorer can drive
+   *  over Web MIDI (Minitaur, Grandmother). When set, those zones become CC senders. */
+  ccMap?: Record<string, number>
+  /** Default MIDI channel (1-16) to send on. Defaults to 1. */
+  midiChannel?: number
 }

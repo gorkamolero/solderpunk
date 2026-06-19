@@ -1,6 +1,7 @@
 import type { SynthConfig } from '@/lib/shared-types'
 import { zones, legendItems } from './zones'
 import { seedLessons } from './lessons'
+import { ccMap } from './cc'
 
 export const grandmotherConfig: SynthConfig = {
   id: 'grandmother',
@@ -14,4 +15,5 @@ export const grandmotherConfig: SynthConfig = {
   zones,
   legendItems,
   lessons: seedLessons,
+  ccMap,
 }
