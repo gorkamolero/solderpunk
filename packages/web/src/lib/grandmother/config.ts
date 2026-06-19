@@ -51,4 +51,23 @@ export const grandmotherConfig: SynthConfig = {
       },
     ],
   },
+  media: [
+    {
+      heading: 'Video Tutorials',
+      color: '#ff4d4d',
+      items: [
+        { name: "Unlocking Grandmother's Secrets", url: 'https://www.youtube.com/watch?v=ciVigeCZiXA', desc: "Loopop's single best deep-dive — review, ideas and tips.", badge: 'Video' },
+        { name: 'Arpeggiator Explained', url: 'https://www.youtube.com/watch?v=UfFCkc0260M', desc: 'How the arp works and how to drive it.', badge: 'Video' },
+        { name: 'How to Use the Sequencer', url: 'https://www.youtube.com/watch?v=1Lm4acY7wf8', desc: 'Recording and playing the 256-step sequencer.', badge: 'Video' },
+        { name: 'Grandmother + Subharmonicon Patching', url: 'https://www.youtube.com/watch?v=L946yzuqnUM', desc: 'Semi-modular patching across two Moogs.', badge: 'Video' },
+      ],
+    },
+    {
+      heading: 'Playlists',
+      color: '#0af',
+      items: [
+        { name: 'Official Moog Tutorials', url: 'https://www.youtube.com/playlist?list=PLwKFiLdtN6B3XXcAU7y1ztii_7FSFqIaU', desc: "Moog's own Grandmother tutorial playlist.", badge: 'Playlist' },
+      ],
+    },
+  ],
 }

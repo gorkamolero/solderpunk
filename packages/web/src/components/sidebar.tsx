@@ -5,7 +5,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Badge } from '@/components/ui/badge'
 import { TutorialView } from './tutorial-view'
-import { BookOpen, Disc3, ExternalLink, Heart, Download } from 'lucide-react'
+import { BookOpen, Disc3, ExternalLink, Heart, Download, PlayCircle } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import type { SeedLesson, PatchLink, PatchSource } from '@/lib/shared-types'
 
@@ -285,6 +285,24 @@ function PatchPanel() {
   )
 }
 
+function MediaPanel() {
+  const { config } = useSynth()
+  if (!config.media || config.media.length === 0) {
+    return (
+      <div className="p-4">
+        <p className="text-[11px]" style={{ color: '#666' }}>No learning media catalogued for this instrument yet.</p>
+      </div>
+    )
+  }
+  return (
+    <ScrollArea className="flex-1 min-h-0">
+      <div className="p-4">
+        <CuratedLinks groups={config.media} />
+      </div>
+    </ScrollArea>
+  )
+}
+
 export function Sidebar() {
   const { tutorial } = useSynth()
 
@@ -304,6 +322,10 @@ export function Sidebar() {
             <Disc3 size={13} strokeWidth={3} />
             Patches
           </TabsTrigger>
+          <TabsTrigger value="watch" className="flex-1 gap-1.5">
+            <PlayCircle size={13} strokeWidth={3} />
+            Watch
+          </TabsTrigger>
         </TabsList>
       </div>
 
@@ -313,6 +335,10 @@ export function Sidebar() {
 
       <TabsContent value="patches" className="flex-1 flex flex-col overflow-hidden min-h-0">
         <PatchPanel />
+      </TabsContent>
+
+      <TabsContent value="watch" className="flex-1 flex flex-col overflow-hidden min-h-0">
+        <MediaPanel />
       </TabsContent>
     </Tabs>
   )

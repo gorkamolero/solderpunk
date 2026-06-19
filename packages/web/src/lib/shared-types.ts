@@ -68,4 +68,6 @@ export interface SynthConfig {
   midiChannel?: number
   /** Source(s) for the Patches tab: one section, or several rendered in order. */
   patchSource?: PatchSource | PatchSource[]
+  /** Curated, verified learning media (videos, channels, courses) for the Watch tab. */
+  media?: { heading: string; color: string; items: PatchLink[] }[]
 }

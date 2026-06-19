@@ -49,4 +49,17 @@ export const brainsConfig: SynthConfig = {
       },
     ],
   },
+  media: [
+    {
+      heading: 'Video Tutorials',
+      color: '#ff4d4d',
+      items: [
+        { name: 'Plaits Deep Dive (Pt. 1)', url: 'https://www.youtube.com/watch?v=3-9B0wRFui0', desc: "The Unperson's 5-part engine-by-engine curriculum (applies 1:1 to Brains).", badge: 'Video' },
+        { name: '100 Sound Recipes Cookbook', url: 'https://www.youtube.com/watch?v=03hT-k0Up5A', desc: 'Rochefsky — exact knob settings for 100+ Plaits/Brains sounds.', badge: 'Video' },
+        { name: 'Plaits Cheat Sheet & Demo', url: 'https://www.youtube.com/watch?v=JcLQyBAQU_E', desc: 'Per-engine cheat sheet with audio examples.', badge: 'Video' },
+        { name: 'How Clever is Brains?', url: 'https://www.youtube.com/watch?v=UndA6IK1Fbw', desc: "What Behringer's take adds/changes vs Plaits.", badge: 'Video' },
+        { name: 'Brains vs Plaits Comparison', url: 'https://www.youtube.com/watch?v=Sqd59vtqHVA', desc: 'Side-by-side sound comparison of the two.', badge: 'Video' },
+      ],
+    },
+  ],
 }

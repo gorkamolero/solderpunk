@@ -44,4 +44,24 @@ export const tempestConfig: SynthConfig = {
       ],
     },
   ],
+  media: [
+    {
+      heading: 'Video Tutorials',
+      color: '#ff4d4d',
+      items: [
+        { name: 'QuickStart with Roger Linn', url: 'https://www.youtube.com/watch?v=bAZfJ3xH74I', desc: 'The co-designer walks through every function — best first watch.', badge: 'Video' },
+        { name: 'Designing a Kick & Snare', url: 'https://www.youtube.com/watch?v=mTBpJIgERgM', desc: 'Official sound-design tutorial for the core drum voices.', badge: 'Video' },
+        { name: '808 Kick Drum Tutorial', url: 'https://www.youtube.com/watch?v=ZFDTbc1Qxds', desc: 'Dave Smith builds an 808-style kick from scratch.', badge: 'Video' },
+        { name: 'Analog Kick Synthesis (2 parts)', url: 'https://adamschneidermusic.com/tempest-analog-kick-synthesis/', desc: 'Adam Schneider — the deepest free kick sound-design walkthrough.', badge: 'Tutorial' },
+      ],
+    },
+    {
+      heading: 'Playlists & Reviews',
+      color: '#0af',
+      items: [
+        { name: 'Official Tempest Tutorials', url: 'https://www.youtube.com/playlist?list=PLrYKylZgRl7nQxNc3uZ9VHKA9V_S5gLhD', desc: "Sequential's full tutorial playlist.", badge: 'Playlist' },
+        { name: 'Sonic LAB Review', url: 'https://sonicstate.com/news/2011/12/23/sonic-lab-review-tempest-analog-drum-machine/', desc: 'In-depth video review of the instrument.', badge: 'Review' },
+      ],
+    },
+  ],
 }

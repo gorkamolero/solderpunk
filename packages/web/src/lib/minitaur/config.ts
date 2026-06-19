@@ -41,4 +41,23 @@ export const minitaurConfig: SynthConfig = {
       },
     ],
   },
+  media: [
+    {
+      heading: 'Video Tutorials',
+      color: '#ff4d4d',
+      items: [
+        { name: 'A Look At Minitaur', url: 'https://www.youtube.com/watch?v=_NXrSPQ7aHY', desc: 'Official Moog feature rundown of the whole panel.', badge: 'Video' },
+        { name: 'How To Make Kicks', url: 'https://www.youtube.com/watch?v=utNeTGo60bI', desc: 'Turning the bass mono into a punchy kick drum.', badge: 'Video' },
+        { name: 'Bass Leads for Melodic Techno', url: 'https://www.youtube.com/watch?v=UVG8yRALF_Y', desc: 'Dialing in driving Minitaur bass/lead lines.', badge: 'Video' },
+        { name: 'Berlin School Sketch', url: 'https://www.youtube.com/watch?v=rhmzRWOc0kA', desc: 'One-synth sequenced performance/sound-design.', badge: 'Video' },
+      ],
+    },
+    {
+      heading: 'Channels',
+      color: '#0af',
+      items: [
+        { name: 'Moog Music (official)', url: 'https://www.youtube.com/@MoogSynthesizers', desc: 'Official demos, tips, and artist sessions.', badge: 'Channel' },
+      ],
+    },
+  ],
 }

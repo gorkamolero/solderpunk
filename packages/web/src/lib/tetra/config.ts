@@ -41,4 +41,24 @@ export const tetraConfig: SynthConfig = {
       },
     ],
   },
+  media: [
+    {
+      heading: 'Video Tutorials',
+      color: '#ff4d4d',
+      items: [
+        { name: '4-Part Multitimbral Demo', url: 'https://www.youtube.com/watch?v=ExB46yszm8k', desc: 'Hands-on tour of the Tetra as a 4-part multitimbral synth.', badge: 'Video' },
+        { name: 'Filter Demo', url: 'https://www.youtube.com/watch?v=d0WoIzGdXf0', desc: 'The Curtis low-pass filter in action.', badge: 'Video' },
+        { name: 'SoundTower Editor v2', url: 'https://www.youtube.com/watch?v=fTg284Bq28Y', desc: 'Using the free editor to see how patches are built.', badge: 'Tool' },
+      ],
+    },
+    {
+      heading: 'Guides & Channels',
+      color: '#0af',
+      items: [
+        { name: "Pym's NRPN Series", url: 'http://tetradev.blogspot.com/2010/03/nrpns-part-1-basics.html', desc: 'The definitive write-up on automating/editing the Tetra via NRPN.', badge: 'Guide' },
+        { name: 'Sound on Sound Review', url: 'https://www.soundonsound.com/reviews/dave-smith-instruments-tetra', desc: 'Gordon Reid — deepest written walkthrough incl. combo mode.', badge: 'Review' },
+        { name: 'Coffeeshopped (Patch Base)', url: 'https://www.youtube.com/user/coffeeshopped', desc: 'Editor/librarian dev — patch-management videos.', badge: 'Channel' },
+      ],
+    },
+  ],
 }
