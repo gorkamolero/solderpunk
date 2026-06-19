@@ -29,3 +29,4 @@ Output shape mirrors `packages/tetra/docs/tetra-complete-guide.md` +
 - [hector.md](hector.md) — Poly Effects Hector (and Beebo)
 - [minitaur.md](minitaur.md) — Moog Minitaur
 - [grandmother.md](grandmother.md) — Moog Grandmother
+- [brains.md](brains.md) — Behringer Brains (Plaits-derived multi-engine macro-oscillator)
