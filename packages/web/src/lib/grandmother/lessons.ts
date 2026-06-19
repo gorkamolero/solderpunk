@@ -7,6 +7,35 @@ import type { SeedLesson } from '@/lib/shared-types'
 
 export const seedLessons: SeedLesson[] = [
   {
+    title: 'Synth basics: just play it',
+    section_id: 'filter',
+    tags: 'tutorial,beginner,basics,synthesis',
+    content: {
+      type: 'tutorial',
+      steps: [
+        {
+          title: 'It works out of the box',
+          body: "Don't be scared by the patch cables — the Grandmother is **fully playable with zero patching**. It's already wired internally as a normal synth: press a key and you get sound. The patchbay is an *optional* superpower you grow into. So first, just play it.\n\nLike most analog synths it's **subtractive**: an oscillator makes a raw tone, a filter shapes it, an envelope controls its volume over time."
+        },
+        {
+          title: 'Oscillators → mixer',
+          focus: 'mix',
+          body: "The two [[osc|oscillators]] make the raw waveform (saw = bright, square/pulse = hollow). The [[mix|Mixer]] sets how much of each — plus a noise channel — you hear. Start with one oscillator on a saw wave and play a few notes to hear the unshaped tone."
+        },
+        {
+          title: 'The filter shapes the tone',
+          focus: 'filter',
+          body: "Turn [[filter-cutoff|Cutoff]] down and the sound darkens — you're subtracting high harmonics. Add [[filter-resonance|Resonance]] for a vocal/whistling emphasis at the cutoff. Sweeping the cutoff by hand while you play is the most expressive move on the whole instrument."
+        },
+        {
+          title: 'Envelope + volume',
+          focus: 'env',
+          body: "The [[env|Envelope]] shapes the sound over time: [[env-attack|Attack]] (how fast it starts), [[env-decay|Decay]]/[[env-sustain|Sustain]] (how it settles while held), [[env-release|Release]] (how it fades after you let go). Fast attack + low sustain = a pluck; slow attack + high sustain = a pad. Set the master [[out-volume|Volume]] and you're playing. The other tutorials open up the patchbay."
+        }
+      ]
+    }
+  },
+  {
     title: 'Meet the Grandmother',
     section_id: 'filter',
     tags: 'tutorial,beginner,intro,architecture',

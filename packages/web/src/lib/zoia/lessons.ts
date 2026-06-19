@@ -8,6 +8,30 @@ import type { SeedLesson } from '@/lib/shared-types'
 
 export const seedLessons: SeedLesson[] = [
   {
+    title: 'Modular basics: your first patch',
+    section_id: 'grid',
+    tags: 'tutorial,beginner,basics,modular',
+    content: {
+      type: 'tutorial',
+      steps: [
+        {
+          title: "What 'modular' means",
+          body: "Most pedals and synths have fixed knobs that do fixed jobs. A **modular** is different: you build the instrument yourself out of building blocks (**modules** — an oscillator, a filter, a delay, an LFO…) and **wire them together** however you like. That's why the ZOIA can be a synth, a multi-effect, or a whole pedalboard — it's whatever you patch.\n\nIt sounds intimidating; it isn't, once you've made one connection."
+        },
+        {
+          title: 'The grid is your canvas',
+          focus: 'grid',
+          body: "Each page is an [[grid|8×5 grid of buttons]]. A module takes up some buttons, and **each button is one part of it** — an input, an output, or a parameter — colour-coded by what it does. You place modules on the grid and connect their inputs/outputs."
+        },
+        {
+          title: 'Build something in 3 moves',
+          focus: 'enc',
+          body: "Use the [[enc|encoder]] to add modules and make connections. A complete first patch: add an **Audio Input** → an **SV Filter** → an **Audio Output**, connect them in order, and patch an **LFO** to the filter's cutoff. You just built an auto-wah from scratch. That's the whole loop — add, connect, listen — and everything else is just more modules."
+        }
+      ]
+    }
+  },
+  {
     title: 'Meet the ZOIA',
     section_id: 'grid',
     tags: 'tutorial,beginner,intro,modular,grid',

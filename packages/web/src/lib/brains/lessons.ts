@@ -9,6 +9,35 @@ import type { SeedLesson } from '@/lib/shared-types'
 
 export const seedLessons: SeedLesson[] = [
   {
+    title: 'Eurorack basics: getting a sound out',
+    section_id: 'io',
+    tags: 'tutorial,beginner,basics,eurorack',
+    content: {
+      type: 'tutorial',
+      steps: [
+        {
+          title: "It's a module, not a synth you play directly",
+          body: "New to Eurorack? Brains has **no keyboard and no built-in way to play it** — that trips up everyone at first. It's a single **module** that lives in a rack and needs other modules (or a MIDI-to-CV converter) to feed it. Once you know the three cables it needs, it's simple."
+        },
+        {
+          title: 'Pick a sound',
+          focus: 'bank',
+          body: "Choose an engine — think of it as picking a patch — with [[bank-button|BANK]] and [[bank-model|MODEL]]. Brains has ~24 engines: synth voices, drums, chords, speech, FM. The [[scope|little screen]] shows the waveform (and the model name) as you switch."
+        },
+        {
+          title: 'Three knobs shape it',
+          focus: 'macros',
+          body: "Every engine is sculpted by the same three knobs — [[macros-harmonics|HARMONICS]], [[macros-timbre|TIMBRE]], [[macros-morph|MORPH]] — whose job changes per engine. [[macros-freq|FREQ]] sets the base pitch. Just turn them and listen; you can't break anything."
+        },
+        {
+          title: 'The three cables to make noise',
+          focus: 'io',
+          body: "To actually hear notes, patch from a sequencer or MIDI-to-CV:\n\n• **pitch** → [[io-voct|V/OCT]]\n• **a gate/trigger** → [[io-trig|TRIG]] (this strikes the note)\n• **audio** out of [[io-out1|OUT 1]] → your mixer or the next module.\n\nThat's it. ([[io-out2|OUT 2 / AUX]] is a bonus second voice.) The other tutorials go deep on the engines and tricks."
+        }
+      ]
+    }
+  },
+  {
     title: 'Meet Brains',
     section_id: 'macros',
     tags: 'tutorial,beginner,intro,plaits,macro-oscillator',

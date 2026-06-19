@@ -7,6 +7,35 @@ import type { SeedLesson } from './types'
 
 export const seedLessons: SeedLesson[] = [
   {
+    title: 'Synth basics: your first sound',
+    section_id: 'osc',
+    tags: 'tutorial,beginner,basics,synthesis',
+    content: {
+      type: 'tutorial',
+      steps: [
+        {
+          title: 'How a synth makes sound',
+          body: "If you've never programmed a synth, start here. Almost every analog synth works in three stages:\n\n1. **Oscillator** — makes a raw, buzzy tone (the pitch).\n2. **Filter** — removes harmonics to shape that tone brighter or darker.\n3. **Amplifier + envelope** — controls the volume *over time* (the attack, the fade).\n\nThe Minitaur is a classic example of this **subtractive** synthesis, which makes it a great first synth to learn the idea on. Hold a low note as you read the next steps."
+        },
+        {
+          title: 'The oscillators = the raw tone',
+          focus: 'osc',
+          body: "The [[osc|oscillators]] generate the sound. Each does two basic waveshapes: **saw** (bright, buzzy — good for basses and leads) and **square** (hollow, woody). Pick saw and play a note: that thick, harmonically-rich tone is your raw material. Everything else just sculpts it."
+        },
+        {
+          title: 'The filter = shaping the tone',
+          focus: 'filter',
+          body: "The [[filter|filter]] is where the magic is. Turn [[filter-cutoff|Cutoff]] down and the sound gets darker and rounder — you're literally *subtracting* high harmonics (hence \"subtractive\"). Add a little [[filter-res|Resonance]] and a whistle emphasises the cutoff frequency. Sweep the cutoff while a note plays — that's the single most important gesture in synthesis."
+        },
+        {
+          title: 'The envelope = shape over time',
+          focus: 'env',
+          body: "A note isn't static — the amp envelope shapes its volume over time with **Attack / Decay / Sustain**. Short [[env-aenv-attack|Attack]] = instant; long attack = a fade-in pad. Short [[env-aenv-decay|Decay]] with low Sustain = a plucky stab; high [[env-aenv-sustain|Sustain]] = a held drone. Try a fast attack + short decay for a punchy bass. That's the whole toolkit — now the other tutorials show what the Minitaur does best."
+        }
+      ]
+    }
+  },
+  {
     title: 'Meet the Minitaur',
     section_id: 'osc',
     tags: 'tutorial,beginner,intro,architecture',

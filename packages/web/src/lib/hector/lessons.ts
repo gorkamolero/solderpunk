@@ -11,6 +11,30 @@ import type { SeedLesson } from '@/lib/shared-types'
 
 export const seedLessons: SeedLesson[] = [
   {
+    title: 'Modular basics: a rack on a screen',
+    section_id: 'screen',
+    tags: 'tutorial,beginner,basics,modular',
+    content: {
+      type: 'tutorial',
+      steps: [
+        {
+          title: 'No cables, same idea',
+          body: "A **modular** instrument is built from building blocks (modules) you wire together — normally with physical patch cables. Hector puts that whole idea **on a touchscreen**: you drop module blocks and draw the connections with your finger. Same power as a Eurorack rack, none of the cable spaghetti — and it's all reconfigurable in seconds."
+        },
+        {
+          title: 'Drop modules, draw connections',
+          focus: 'screen',
+          body: "The [[screen|touchscreen]] is everything. Tap to add a module (a delay, filter, oscillator, reverb…), then connect one module's output to another's input. Signal flows along the wires you draw; control (CV) connections are shown in green. Any module can modulate any other — that flexibility is the point."
+        },
+        {
+          title: 'Sound in, sound out — and start from a preset',
+          focus: 'in',
+          body: "Plug a guitar/synth/drum machine into the [[in|inputs]] and take the result from the [[out|outputs]] (all of them carry audio or CV). The easiest way in is to **load a preset** and tweak it — Hector ships with plenty, and there are hundreds more shared online. Once a preset makes sense, building your own is just the same add-and-connect loop. The deeper tutorials cover the CPU trick and the famous Mutable modules."
+        }
+      ]
+    }
+  },
+  {
     title: 'Meet Hector',
     section_id: 'screen',
     tags: 'tutorial,beginner,intro,modular,presets',
