@@ -19,7 +19,7 @@ Empress ZOIA · Poly Effects Hector.
 **Install & run**
 
 ```bash
-git clone https://github.com/spanishflu-est1918/solderpunk.git
+git clone https://github.com/gorkamolero/solderpunk.git
 cd solderpunk
 pnpm install
 pnpm dev            # → http://localhost:3000

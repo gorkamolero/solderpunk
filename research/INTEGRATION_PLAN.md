@@ -61,7 +61,7 @@ research/<id>/
 
 - Update `research/README.md` index to point at the folders + the corpus→instrument table above (firmware baseline + which source is newer).
 - Add `research/INTEGRATION_PLAN.md` (this file).
-- Commit + push to `origin` (private `spanishflu-est1918/solderpunk`).
+- Commit + push to `origin` (`gorkamolero/solderpunk`).
 
 **Done when:** all 5 folders hold prompt + both sources; `git log` shows the commit on `origin/main`.
 
